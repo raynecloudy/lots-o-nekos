@@ -27,7 +27,7 @@ function oneko() {
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 10;
+  const nekoSpeed = config.varying_speed ? Math.random() * 5 + 2 : 10;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -102,6 +102,7 @@ function oneko() {
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
+    nekoEl.style.filter = config.coloured ? `sepia(100%) saturate(15) hue-rotate(${Math.floor(Math.random() * 360)}deg)` : "";
 
     let nekoFile = "./oneko.gif"
     const curScript = document.currentScript
