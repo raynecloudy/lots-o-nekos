@@ -1,6 +1,7 @@
-// oneko.js: https://github.com/adryd325/oneko.js
+// original oneko.js: https://github.com/adryd325/oneko.js/
+// modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
-(function oneko() {
+function oneko() {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
@@ -236,4 +237,4 @@
   }
 
   init();
-})();
+}
