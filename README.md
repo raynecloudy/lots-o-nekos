@@ -2,7 +2,7 @@
 
 a modified version of the popular oneko.js script! featuring colouring, speed, and other fun configurations!
 
-demo: https://raynecloudy.nekoweb.org/
+demo: https://raynecloudy.nekoweb.org/?oneko=10
 
 # installation
 
