@@ -6,6 +6,7 @@ const config = {
   "base_speed": 10,
   "coloured": true,
   "varying_speed": true,
+  "update_speed": 100
 };
 
 for (let i = 0; i < config.amount; i++) {
@@ -136,7 +137,7 @@ function oneko() {
     if (!lastFrameTimestamp) {
       lastFrameTimestamp = timestamp;
     }
-    if (timestamp - lastFrameTimestamp > 100) {
+    if (timestamp - lastFrameTimestamp > config.update_speed) {
       lastFrameTimestamp = timestamp
       frame()
     }
