@@ -7,6 +7,10 @@ const config = {
   "varying_speed": true
 };
 
+for (let i = 0; i < config.amount; i++) {
+  oneko();
+}
+
 function oneko() {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
