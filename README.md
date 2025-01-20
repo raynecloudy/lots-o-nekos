@@ -6,7 +6,7 @@ demo: https://raynecloudy.nekoweb.org/?oneko=10
 
 # installation
 
-1. download `lots-o-nekos.js` and place it in your website's home directory.
+1. download `lots-o-nekos.js` and `oneko.gif` and place both files in your website's home directory.
 2. paste this code in the `body` tag of all HTML files:
 ```html
 <script src="/lots-o-nekos.js"></script>
