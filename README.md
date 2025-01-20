@@ -7,6 +7,9 @@
 # overview
 welcome to the lots-o-nekos github repository! this project contains a modified version of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. it features customization capabilities such as speed, custom onekos, and more!
 
+# contributing
+this project takes contributions from any and all! new features are always welcome, and there could always be more onekos to choose from... if you're a pixel artist you should consider creating an custom oneko for this project :3
+
 # installation
 1. download `/lots-o-nekos.js` and your choice of cat from the `/cats/` diraectory and place both files in your website's home directory.
 2. paste this code in the `body` tag of all HTML files:
