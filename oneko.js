@@ -31,7 +31,7 @@ function oneko() {
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = config.varying_speed ? Math.random() * 6 + 5 : 10;
+  const nekoSpeed = config.varying_speed ? Math.random() * 4 + 7 : 10;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
