@@ -5,7 +5,7 @@
 </div>
 
 # Overview
-Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom onekos, and more!
+Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom Onekos, and more!
 
 # Contributing
 This project takes contributions from any and all! New features are always welcome, and there could always be more Onekos to choose from... if you're a pixel artist you should consider creating an custom Oneko for this project :3
@@ -52,5 +52,9 @@ Parameter|Meaning
 `targetX`|The X position the Oneko is running towards, in pixels.
 `targetY`|The Y position the Oneko is running towards, in pixels.
 `updateSpeed`|How fast the Oneko updates its animations, in milliseconds.
-`x`|the Oneko's position on the X axis, in pixels.
-`y`|the Oneko's position on the Y axis, in pixels.
+`x`|The Oneko's position on the X axis, in pixels.
+`y`|The Oneko's position on the Y axis, in pixels.
+
+<div align="center">
+  <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="oneko running">
+</div>
