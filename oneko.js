@@ -1,6 +1,12 @@
 // original oneko.js: https://github.com/adryd325/oneko.js/
 // modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
+const config = {
+  "amount": new URLSearchParams(window.location.search).get("oneko"),
+  "coloured": true,
+  "varying_speed": true
+};
+
 function oneko() {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
