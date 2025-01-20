@@ -2,8 +2,9 @@
 // modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
 const config = {
-  "amount": new URLSearchParams(window.location.search).get("oneko"),
+  "amount": 10,
   "coloured": true,
+  "sources": ["./oneko.gif"],
   "speed": 10,
   "update_speed": 80
 };
@@ -109,11 +110,7 @@ function oneko() {
     nekoEl.style.zIndex = 2147483647;
     nekoEl.style.filter = config.coloured ? `sepia(100%) saturate(15) hue-rotate(${Math.floor(Math.random() * 360)}deg)` : "";
 
-    let nekoFile = "./oneko.gif"
-    const curScript = document.currentScript
-    if (curScript && curScript.dataset.cat) {
-      nekoFile = curScript.dataset.cat
-    }
+    let nekoFile = config.sources[Math.floor(Math.random() * config.sources.length)];
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
     document.body.appendChild(nekoEl);

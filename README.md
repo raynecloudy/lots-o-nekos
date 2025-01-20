@@ -1,14 +1,14 @@
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/lots-o-nekos.png" alt="lots-o-nekos">
   
-  a modified version of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring colouring, speed, and other fun configurations!
+  a modified version of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom onekos, and other fun stuff!
 </div>
 
 # overview
-welcome to the lots-o-nekos github repository! this project contains a modified version of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. it features customization capabilities such as colouring, speed, and more!
+welcome to the lots-o-nekos github repository! this project contains a modified version of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. it features customization capabilities such as speed, custom onekos, and more!
 
 # installation
-1. download `lots-o-nekos.js` and `oneko.gif` and place both files in your website's home directory.
+1. download `/lots-o-nekos.js` and your choice of cat from the `/cats/` diraectory and place both files in your website's home directory.
 2. paste this code in the `body` tag of all HTML files:
 ```html
 <script src="/lots-o-nekos.js"></script>
@@ -37,10 +37,8 @@ the number of onekos to display on the page.
 > [!WARNING]
 > please don't put 10,000 onekos on your site.
 
-## `coloured`: boolean
-whether to randomly colour onekos or leave them white.
-
-![coloured onekos](https://github.com/user-attachments/assets/1e02779b-9c2f-47c4-87f1-2db532def9f4)
+## `sources`: string[]
+a list of paths to files. controls what the oneko looks like. it's a list for the purpose of randomization
 
 ## `speed`: number
 how fast onekos run. measured in pixels.
