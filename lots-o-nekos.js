@@ -17,8 +17,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -87,9 +87,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -110,8 +107,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -180,9 +177,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -203,8 +197,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -273,9 +267,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -296,8 +287,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -366,9 +357,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -389,8 +377,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -459,9 +447,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -482,8 +467,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -552,9 +537,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
@@ -575,8 +557,8 @@ class Oneko {
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 0;
-    this.targetY = 0;
+    this.targetX = this.x;
+    this.targetY = this.y;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
@@ -645,9 +627,6 @@ class Oneko {
         [-1, -1],
       ],
     };
-
-    this.updateTarget = this.updateTarget.bind(this);
-    document.addEventListener("mousemove", this.updateTarget);
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
