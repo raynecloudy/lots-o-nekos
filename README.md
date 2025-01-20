@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/lots-o-nekos.png" alt="lots-o-nekos">
   
-  a modified version of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom onekos, and other fun stuff!
+  a javascript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom onekos, and other fun stuff!
 </div>
 
 # overview
