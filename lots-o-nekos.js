@@ -3,9 +3,8 @@
 
 const config = {
   "amount": new URLSearchParams(window.location.search).get("oneko"),
-  "base_speed": 10,
   "coloured": true,
-  "varying_speed": true,
+  "speed": 10,
   "update_speed": 80
 };
 
@@ -33,7 +32,7 @@ function oneko() {
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = config.varying_speed ? Math.random() * (config.base_speed / 2) + (config.base_speed / 2) : config.base_speed;
+  const nekoSpeed = config.speed;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],

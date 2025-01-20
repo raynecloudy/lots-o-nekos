@@ -1,19 +1,14 @@
-# oneko.js
+![lots-o-nekos](https://github.com/user-attachments/assets/749a162f-2b59-4da9-9c99-36394ce5b71f)
 
-A hacky script I wrote to put a cat on my site.
+a modified version of the popular oneko.js script! featuring colouring, speed, and other fun configurations!
 
-The default image is `oneko.gif` in the same directory as the script. This can be changed by adding `data-cat="yourimage.png"` to your `<script>` tag.
+demo: https://raynecloudy.nekoweb.org/
 
-demo: https://adryd.com
+# installation
 
-This script is meant to be simple so that it can easily be extended upon. Pull requests adding features not seen in the [original neko program 
-](https://en.wikipedia.org/wiki/Neko_(software)) will probably not be merged.
-
-implemented in a few different places
-  - Userscript: https://openuserjs.org/scripts/sjehuda/Oneko_WebMate
-  - Vencord: https://vencord.dev/plugins/oneko
-  - Spicetify: https://github.com/kyrie25/spicetify-oneko
-
-feature forks
- - Pet the cat: https://github.com/tylxr59/oneko.js/tree/main
- - Move the cat using scroll wheel: https://github.com/rozbrajaczpoziomow/fork-oneko.js/tree/main
+1. download `lots-o-nekos.js` and place it in your website's home directory.
+2. paste this code in the `body` tag of all HTML files:
+```html
+<script src="/lots-o-nekos.js"></script>
+```
+3. open `lots-o-nekos.js` and mess with configurations located at the top of the file. configuration documentation can be found in `config.md`.
