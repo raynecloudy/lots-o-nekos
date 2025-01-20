@@ -6,7 +6,7 @@ const config = {
   "base_speed": 10,
   "coloured": true,
   "varying_speed": true,
-  "update_speed": 100
+  "update_speed": 80
 };
 
 for (let i = 0; i < config.amount; i++) {
