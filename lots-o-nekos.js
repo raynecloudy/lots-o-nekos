@@ -108,8 +108,7 @@ function oneko() {
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
-    nekoEl.style.filter = config.coloured ? `sepia(100%) saturate(15) hue-rotate(${Math.floor(Math.random() * 360)}deg)` : "";
-
+    
     let nekoFile = config.sources[Math.floor(Math.random() * config.sources.length)];
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
