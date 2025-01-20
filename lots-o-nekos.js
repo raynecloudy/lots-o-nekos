@@ -2,24 +2,581 @@
 // modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
 class Oneko {
-  
-  constructor(start_x, start_y, run_speed, source, update_speed) {
+  constructor() {
     const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
     if (isReducedMotion) return;
     
-    this.x = start_x;
-    this.y = start_y;
-    this.speed = run_speed;
-    this.source = source;
-    this.updateSpeed = update_speed;
+    this.x = 100;
+    this.y = 100;
+    this.speed = 10;
+    this.source = "https://raynecloudy.nekoweb.org/oneko.gif";
+    this.updateSpeed = 100;
     
     this.element = document.createElement("div");
     this.element = document.body.appendChild(this.element);
     
-    this.targetX = 500;
-    this.targetY = 500;
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(source) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = 100;
+    this.y = 100;
+    this.speed = 10;
+    this.source = source;
+    this.updateSpeed = 100;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(startX, startY) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = startX;
+    this.y = startY;
+    this.speed = 10;
+    this.source = "https://raynecloudy.nekoweb.org";
+    this.updateSpeed = 100;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(startX, startY, runSpeed) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = startX;
+    this.y = startY;
+    this.speed = runSpeed;
+    this.source = "https://raynecloudy.nekoweb.org/oneko.gif";
+    this.updateSpeed = 100;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(startX, startY, source) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = startX;
+    this.y = startY;
+    this.speed = 10;
+    this.source = source;
+    this.updateSpeed = 100;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(startX, startY, runSpeed, updateSpeed) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = startX;
+    this.y = startY;
+    this.speed = runSpeed;
+    this.source = "https://raynecloudy.nekoweb.org/oneko.gif";
+    this.updateSpeed = updateSpeed;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
+    this.frameCount = 0;
+    this.idleTime = 0;
+    this.idleAnimation = null;
+    this.idleAnimationFrame = 0;
+    this.lastFrameTimestamp;
+
+    this.spriteSets = {
+      idle: [[-3, -3]],
+      alert: [[-7, -3]],
+      scratchSelf: [
+        [-5, 0],
+        [-6, 0],
+        [-7, 0],
+      ],
+      scratchWallN: [
+        [0, 0],
+        [0, -1],
+      ],
+      scratchWallS: [
+        [-7, -1],
+        [-6, -2],
+      ],
+      scratchWallE: [
+        [-2, -2],
+        [-2, -3],
+      ],
+      scratchWallW: [
+        [-4, 0],
+        [-4, -1],
+      ],
+      tired: [[-3, -2]],
+      sleeping: [
+        [-2, 0],
+        [-2, -1],
+      ],
+      N: [
+        [-1, -2],
+        [-1, -3],
+      ],
+      NE: [
+        [0, -2],
+        [0, -3],
+      ],
+      E: [
+        [-3, 0],
+        [-3, -1],
+      ],
+      SE: [
+        [-5, -1],
+        [-5, -2],
+      ],
+      S: [
+        [-6, -3],
+        [-7, -2],
+      ],
+      SW: [
+        [-5, -3],
+        [-6, -1],
+      ],
+      W: [
+        [-4, -2],
+        [-4, -3],
+      ],
+      NW: [
+        [-1, 0],
+        [-1, -1],
+      ],
+    };
+
+    this.updateTarget = this.updateTarget.bind(this);
+    document.addEventListener("mousemove", this.updateTarget);
+
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
+  }
+
+  constructor(startX, startY, runSpeed, updateSpeed, source) {
+    const isReducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    if (isReducedMotion) return;
+    
+    this.x = startX;
+    this.y = startY;
+    this.speed = runSpeed;
+    this.source = source;
+    this.updateSpeed = updateSpeed;
+    
+    this.element = document.createElement("div");
+    this.element = document.body.appendChild(this.element);
+    
+    this.targetX = 0;
+    this.targetY = 0;
     this.frameCount = 0;
     this.idleTime = 0;
     this.idleAnimation = null;
