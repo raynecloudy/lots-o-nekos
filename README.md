@@ -58,6 +58,11 @@ Parameter|Meaning
 `x`|The Oneko's position on the X axis, in pixels.
 `y`|The Oneko's position on the Y axis, in pixels.
 
+### Functions
+Parameter|Meaning
+---------|-------
+`setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
+
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="oneko running">
 </div>

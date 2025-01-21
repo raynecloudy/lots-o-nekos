@@ -103,9 +103,9 @@ class Oneko {
     window.requestAnimationFrame(this.onAnimationFrame);
   }
 
-  updateTarget(event) {
-    this.targetX = event.clientX;
-    this.targetY = event.clientY;
+  updateTarget(x, y) {
+    this.targetX = x;
+    this.targetY = y;
   }
 
   onAnimationFrame(timestamp) {
