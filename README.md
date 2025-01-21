@@ -26,23 +26,10 @@ This project takes contributions from any and all! New features are always welco
 ## `Oneko` class
 
 ### Constructors
-The following are permitted constructors for an `Oneko` object:
+`Oneko` objects are constructed using this syntax:
 ```js
 new Oneko();
-new Oneko(source);
-new Oneko(startX, startY);
-new Oneko(startX, startY, runSpeed);
-new Oneko(startX, startY, source);
-new Oneko(startX, startY, runSpeed, updateSpeed);
-new Oneko(startX, startY, runSpeed, updateSpeed, source);
 ```
-Argument|Meaning
---------|-------
-`startX`|Where to spawn the Oneko on the X axis, in pixels. Default value is `100`.
-`startY`|Where to spawn the Oneko on the Y axis, in pixels. Default value is `100`.
-`runSpeed`|How fast the Oneko can run, in pixels. Default value is `10`.
-`updateSpeed`|How fast the Oneko updates its animations, in milliseconds. Default value is `100`.
-`source`|The path to an image file used to represent the Oneko, as a string. Default value is `https://raynecloudy.nekoweb.org/oneko.gif`. It is not recommended to keep this as default.
 
 ### Parameters
 Parameter|Meaning
