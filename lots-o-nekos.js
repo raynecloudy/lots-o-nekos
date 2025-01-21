@@ -103,7 +103,7 @@ class Oneko {
     window.requestAnimationFrame(this.onAnimationFrame);
   }
 
-  updateTarget(x, y) {
+  setTarget(x, y) {
     this.targetX = x;
     this.targetY = y;
   }
