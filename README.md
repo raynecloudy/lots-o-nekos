@@ -11,12 +11,12 @@ Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript li
 This project takes contributions from any and all! New features are always welcome, and there could always be more Onekos to choose from... if you're a pixel artist you should consider creating an custom Oneko for this project :3
 
 # Installation
-1. Download `/lots-o-nekos.js` and your choice of cat from the `/cats/` directory and place both files in your website's home directory.
+1. Download `lots-o-nekos.js` and your choice of cat from the `/onekos/` directory and place both files in your website's home directory.
 2. Paste this code in the `body` tag of all HTML files:
 ```html
 <script src="/lots-o-nekos.js"></script>
 ```
-3. Open `lots-o-nekos.js` and mess with configurations located at the top of the file.
+3. In a separate script, write some code with the library!
 
 # Documentation
 
