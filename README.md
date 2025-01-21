@@ -4,6 +4,9 @@
   A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom Onekos, and other fun stuff!
 </div>
 
+> [!IMPORTANT]
+> This project is early in development and backwards-incompatible updates will be common during this time. Sorry :(
+
 # Overview
 Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom Onekos, and more!
 
