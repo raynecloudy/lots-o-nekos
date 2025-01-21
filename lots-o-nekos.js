@@ -15,17 +15,7 @@ class Oneko {
     this.updateSpeed = 100;
     
     this.element = document.createElement("div");
-    this.element.id = "oneko";
-    this.element.ariaHidden = true;
-    this.element.style.width = "32px";
-    this.element.style.height = "32px";
-    this.element.style.position = "fixed";
-    this.element.style.pointerEvents = "none";
-    this.element.style.imageRendering = "pixelated";
-    this.element.style.left = `${this.x - 16}px`;
-    this.element.style.top = `${this.y - 16}px`;
-    this.element.style.zIndex = 2147483647;
-    this.element.style.backgroundImage = `url(${this.source})`;
+    this.draw();
     this.element = document.body.appendChild(this.element);
     
     this.targetX = this.x;
@@ -126,6 +116,7 @@ class Oneko {
   setSprite(name, frame) {
     const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
     this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+    this.draw();
   }
 
   resetIdleAnimation() {
@@ -224,6 +215,10 @@ class Oneko {
     this.x = Math.min(Math.max(16, this.x), window.innerWidth - 16);
     this.y = Math.min(Math.max(16, this.y), window.innerHeight - 16);
 
+    this.draw();
+  }
+
+  draw() {
     this.element.id = "oneko";
     this.element.ariaHidden = true;
     this.element.style.width = "32px";
