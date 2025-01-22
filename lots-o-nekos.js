@@ -98,6 +98,12 @@ class Oneko {
     this.targetY = y;
   }
 
+  events = {
+    "draw": new Event("draw"),
+    "start_running": new Event("start_running"),
+    "stop_running": new Event("stop_running")
+  };
+
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
     if (!this.element.isConnected) {
@@ -125,6 +131,10 @@ class Oneko {
   }
 
   idle() {
+    if (this.idleTime === 1) {
+      this.dispatchEvent(this.events.stop_running);
+    }
+
     this.idleTime += 1;
 
     // every ~ 20 seconds
@@ -199,6 +209,9 @@ class Oneko {
       // count down after being alerted before moving
       this.idleTime = Math.min(this.idleTime, 7);
       this.idleTime -= 1;
+      if (this.idleTime === 1) {
+        this.dispatchEvent(this.events.start_running);
+      }
       return;
     }
 
@@ -230,5 +243,7 @@ class Oneko {
     this.element.style.top = `${this.y - 16}px`;
     this.element.style.zIndex = 2147483647;
     this.element.style.backgroundImage = `url(${this.source})`;
+
+    this.dispatchEvent(this.events.draw);
   }
 }
