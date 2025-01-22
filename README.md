@@ -52,6 +52,7 @@ Function|Meaning
 
 ### Events
 Event|Fired when...
+-----|-------------
 `draw`|Oneko is drawn
 `start_running`|Target coordinate becomes outside range, after alert animation plays
 `stop_running`|Target coordinate becomes inside range
