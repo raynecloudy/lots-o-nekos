@@ -1,8 +1,10 @@
 // original oneko.js: https://github.com/adryd325/oneko.js/
 // modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
-class Oneko {
+class Oneko extends EventTarget {
   constructor() {
+    super();
+
     const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
@@ -15,7 +17,6 @@ class Oneko {
     this.updateSpeed = 100;
     
     this.element = document.createElement("div");
-    this.draw();
     this.element = document.body.appendChild(this.element);
     
     this.targetX = this.x;
@@ -25,6 +26,14 @@ class Oneko {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
     this.lastFrameTimestamp;
+    
+    this.events = {
+      "draw": new Event("draw"),
+      "start_running": new Event("start_running"),
+      "stop_running": new Event("stop_running")
+    };
+    
+    this.draw();
 
     this.spriteSets = {
       idle: [[-3, -3]],
@@ -97,12 +106,6 @@ class Oneko {
     this.targetX = x;
     this.targetY = y;
   }
-
-  events = {
-    "draw": new Event("draw"),
-    "start_running": new Event("start_running"),
-    "stop_running": new Event("stop_running")
-  };
 
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
