@@ -46,9 +46,15 @@ Parameter|Meaning
 `y`|The Oneko's position on the Y axis, in pixels.
 
 ### Functions
-Parameter|Meaning
+Function|Meaning
 ---------|-------
 `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
+
+### Events
+Event|Fired when...
+`draw`|Oneko is drawn
+`start_running`|Target coordinate becomes outside range, after alert animation plays
+`stop_running`|Target coordinate becomes inside range
 
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="oneko running">
