@@ -8,7 +8,7 @@
 > This project is early in development and backwards-incompatible updates will be common during this time. Sorry :(
 
 > [!note]
-> unlike the [original script](https://github.com/adryd325/oneko.js), lots-o-nekos does not support IE6.
+> Unlike the [original script](https://github.com/adryd325/oneko.js), lots-o-nekos does not support IE6.
 
 # Overview
 Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom Onekos, and more!
