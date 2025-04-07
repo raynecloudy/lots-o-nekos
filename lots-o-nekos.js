@@ -135,19 +135,19 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is standing still.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/idle.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/idle.png)
      */
     idle: [[-3, -3]],
     /**
      * Shown before the Oneko starts running to the target coordinate.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/alert.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/alert.png)
      */
     alert: [[-7, -3]],
     /**
      * Alternative idle animation - the Oneko scratches its ears.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/scratchSelf.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchSelf.png)
      */
     scratchSelf: [
       [-5, 0],
@@ -157,7 +157,7 @@ class Oneko extends EventTarget {
     /**
      * Alternative idle animation - the Oneko scratches the top of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the top of the viewport.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/scratchWallN.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallN.png)
      */
     scratchWallN: [
       [0, 0],
@@ -166,7 +166,7 @@ class Oneko extends EventTarget {
     /**
      * Alternative idle animation - the Oneko scratches the bottom of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the bottom of the viewport.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/scratchWallS.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallS.png)
      */
     scratchWallS: [
       [-7, -1],
@@ -175,7 +175,7 @@ class Oneko extends EventTarget {
     /**
      * Alternative idle animation - the Oneko scratches the right side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the right side of the viewport.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/scratchWallE.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallE.png)
      */
     scratchWallE: [
       [-2, -2],
@@ -184,7 +184,7 @@ class Oneko extends EventTarget {
     /**
      * Alternative idle animation - the Oneko scratches the left side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the left side of the viewport.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/scratchWallW.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallW.png)
      */
     scratchWallW: [
       [-4, 0],
@@ -193,13 +193,13 @@ class Oneko extends EventTarget {
     /**
      * Alternative idle animation - the Oneko is getting ready to sleep.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/tired.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/tired.png)
      */
     tired: [[-3, -2]],
     /**
      * Alternative idle animation - the Oneko is sleeping.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/sleeping.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/sleeping.png)
      */
     sleeping: [
       [-2, 0],
@@ -208,7 +208,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running up.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/N.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/N.png)
      */
     N: [
       [-1, -2],
@@ -217,7 +217,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running up and to the right.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/NE.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/NE.png)
      */
     NE: [
       [0, -2],
@@ -226,7 +226,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running right.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/E.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/E.png)
      */
     E: [
       [-3, 0],
@@ -235,7 +235,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running down and to the right.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/SE.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/SE.png)
      */
     SE: [
       [-5, -1],
@@ -244,7 +244,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running down.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/S.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/S.png)
      */
     S: [
       [-6, -3],
@@ -253,7 +253,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running down and to the left.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/SW.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/SW.png)
      */
     SW: [
       [-5, -3],
@@ -262,7 +262,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running left.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/W.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/W.png)
      */
     W: [
       [-4, -2],
@@ -271,7 +271,7 @@ class Oneko extends EventTarget {
     /**
      * The Oneko is running up and to the left.
      * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/media/anim-locations/NW.png)
+     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/NW.png)
      */
     NW: [
       [-1, 0],
