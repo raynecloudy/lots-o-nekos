@@ -119,6 +119,7 @@ class Oneko extends EventTarget {
 
   /**
    * A keyed list of Events fired by the Oneko object.
+   * @readonly
    */
   _events = {
     "draw": new Event("draw"),
