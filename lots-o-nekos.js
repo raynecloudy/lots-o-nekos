@@ -13,7 +13,7 @@ class Oneko extends EventTarget {
     this.x = 100;
     this.y = 100;
     this.speed = 10;
-    this.source = "https://raynecloudy.nekoweb.org/oneko.gif";
+    this.source = "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
     this.updateSpeed = 100;
     
     this.element = document.createElement("div");
