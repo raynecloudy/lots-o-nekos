@@ -353,8 +353,8 @@ class Oneko extends EventTarget {
 
   /**
    * Sets the sprite image to a given frame of a given animation.
-   * @param {string | number} name Name or index of animation to access. The Y value on the sprite sheet.
-   * @param {*} frame Frame of animation to access. The X value on the sprite sheet.
+   * @param {string} name Name of animation to access. The Y value on the sprite sheet.
+   * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
    * @readonly
    */
   _setSprite(name, frame) {

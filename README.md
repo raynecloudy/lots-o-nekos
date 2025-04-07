@@ -1,19 +1,19 @@
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/lots-o-nekos.png" alt="lots-o-nekos">
   
-  A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom Onekos, and other fun stuff!
+  A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, coordinate control, and other fun stuff!
 </div>
 
 # Overview
-Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom Onekos, and more!
+Welcome to lots-o-nekos! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, graphics, and more!
 
 # Contributing
-This project takes contributions from any and all! New features are always welcome, and there could always be more Onekos to choose from... if you're a pixel artist you should consider creating a custom Oneko for https://github.com/raynecloudy/oneko_db/ :3
+This project takes contributions from any and all! New features are always welcome, and there could always be more Oneko graphics to choose from... if you're a pixel artist you should consider creating a custom Oneko graphic for https://github.com/raynecloudy/oneko_db/ :3
 
 # Installation
 There are two possible methods of installation.
 
-## From NPM
+## From npm
 1. Install and import the `lots-o-nekos` package:
 ```bash
 npm install lots-o-nekos
@@ -63,12 +63,12 @@ Parameter|Meaning
 Function|Meaning
 --------|-------
 `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
-`_onAnimationFrame`|Runs every frame. Enables Oneko animations.
-`_setSprite`|Sets the sprite image to a given frame of a given animation.
-`_resetIdleAnimation`|Resets the idle animation.
-`_idle`|Controls idle animation logic (scratching, sleeping, etc.)
-`_frame`|Controls all animation logic.
-`_draw`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
+`_onAnimationFrame(timestamp: number): void`|Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
+`_setSprite(name: string, frame: number): void`|Sets the sprite image to a given frame of a given animation.
+`_resetIdleAnimation(): void`|Resets the idle animation.
+`_idle(): void`|Controls idle animation logic (scratching, sleeping, etc.)
+`_frame(): void`|Controls all animation logic.
+`_draw(): void`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
 
 ### Events
 Event|Fired when...
