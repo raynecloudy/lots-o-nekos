@@ -4,9 +4,6 @@
   A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom Onekos, and other fun stuff!
 </div>
 
-> [!important]
-> This project is early in development and backwards-incompatible updates will be common during this time. Sorry :(
-
 > [!note]
 > Unlike the [original script](https://github.com/adryd325/oneko.js), lots-o-nekos does not support IE6.
 
@@ -17,6 +14,20 @@ Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript li
 This project takes contributions from any and all! New features are always welcome, and there could always be more Onekos to choose from... if you're a pixel artist you should consider creating a custom Oneko for https://github.com/raynecloudy/oneko_db/ :3
 
 # Installation
+There are two possible methods of installation.
+
+## From NPM
+1. Install and import the `lots-o-nekos` package:
+```bash
+npm install lots-o-nekos
+```
+```ts
+import { Oneko } from "lots-o-nekos";
+
+const oneko = new Oneko();
+```
+
+## From GitHub
 1. Download `lots-o-nekos.js` and your choice of cat from https://github.com/raynecloudy/oneko_db/ and place both files in your website's home directory.
 2. Paste this code in the `body` tag of all HTML files:
 ```html
@@ -50,7 +61,7 @@ Parameter|Meaning
 
 ### Functions
 Function|Meaning
----------|-------
+--------|-------
 `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
 
 ### Events
