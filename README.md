@@ -4,9 +4,6 @@
   A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, custom Onekos, and other fun stuff!
 </div>
 
-> [!note]
-> Unlike the [original script](https://github.com/adryd325/oneko.js), lots-o-nekos does not support IE6.
-
 # Overview
 Welcome to the `lots-o-nekos` GitHub repository! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, custom Onekos, and more!
 
@@ -72,7 +69,6 @@ Function|Meaning
 `_idle`|Controls idle animation logic (scratching, sleeping, etc.)
 `_frame`|Controls all animation logic.
 `_draw`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
-``|
 
 ### Events
 Event|Fired when...
