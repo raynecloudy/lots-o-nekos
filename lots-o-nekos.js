@@ -18,17 +18,26 @@
  * `idleTime`|How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
  * `source`|The path to an image file used to represent the Oneko, as a string.
  * `speed`|How far the Oneko runs per update, in pixels.
+ * `spriteSets`|A keyed list of arrays of points ([number, number]), defined as animations.
  * `targetX`|The X position the Oneko is running towards, in pixels.
  * `targetY`|The Y position the Oneko is running towards, in pixels.
  * `updateSpeed`|How fast the Oneko updates its animations, in milliseconds.
  * `x`|The Oneko's `element`'s position on the X axis, in pixels.
  * `y`|The Oneko's `element`'s position on the Y axis, in pixels.
- * `spriteSets`|A keyed list of arrays of points ([number, number]), defined as animations.
+ * `_lastFrameTimestamp`|The timestamp of the last time the Oneko's `element` was updated.
+ * `_events`|A keyed list of Events fired by the Oneko object.
  * 
  * ### Functions
  * Function|Meaning
  * --------|-------
- * `setTarget(x: number, y: number): void`|Sets the coordinates for the Oneko to run to. `x` and `y` are pixel values.
+ * `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
+ * `_onAnimationFrame`|Runs every frame. Enables Oneko animations.
+ * `_setSprite`|Sets the sprite image to a given frame of a given animation.
+ * `_resetIdleAnimation`|Resets the idle animation.
+ * `_idle`|Controls idle animation logic (scratching, sleeping, etc.)
+ * `_frame`|Controls all animation logic.
+ * `_draw`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
+ * ``|
  * 
  * ### Events
  * Event|Fired when...

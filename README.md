@@ -38,7 +38,6 @@ const oneko = new Oneko();
 # Documentation
 
 ## `Oneko` class
-The `Oneko` class is the kitty object
 
 ### Constructors
 `Oneko` objects are constructed using this syntax:
