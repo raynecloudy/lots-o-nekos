@@ -250,3 +250,5 @@ class Oneko extends EventTarget {
     this.dispatchEvent(this.events.draw);
   }
 }
+
+export default Oneko;

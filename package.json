@@ -1,0 +1,20 @@
+{
+  "name": "lots-o-nekos",
+  "version": "1.1.0",
+  "description": "cat follow mouse real! now a javascript library with additionyal features for an elevated oneko experience ≽^•⩊•^≼",
+  "homepage": "https://github.com/raynecloudy/lots-o-nekos#readme",
+  "bugs": {
+    "url": "https://github.com/raynecloudy/lots-o-nekos/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raynecloudy/lots-o-nekos.git"
+  },
+  "license": "MIT",
+  "author": "raynec",
+  "type": "commonjs",
+  "main": "lots-o-nekos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
