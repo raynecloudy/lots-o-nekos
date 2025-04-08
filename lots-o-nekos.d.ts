@@ -1,5 +1,3 @@
-type NonUndefined<T> = T extends undefined ? never : T;
-
 declare module "lots-o-nekos" {
   export class Oneko {
     x: number;
