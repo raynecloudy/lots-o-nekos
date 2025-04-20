@@ -272,7 +272,7 @@ class Oneko extends EventTarget {
     
     this.element = document.createElement("div");
 
-    this.element.class = "oneko";
+    this.element.className = "oneko";
     this.element.ariaHidden = true;
     this.element.style.width = "32px";
     this.element.style.height = "32px";
@@ -280,7 +280,7 @@ class Oneko extends EventTarget {
     this.element.style.pointerEvents = "none";
     this.element.style.imageRendering = "pixelated";
     this.element.style.zIndex = 2147483647;
-    
+
     this.element = document.body.appendChild(this.element);
     
     this.targetX = this.x;
