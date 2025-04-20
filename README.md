@@ -42,8 +42,8 @@ const oneko = new Oneko();
 new Oneko();
 ```
 
-### Parameters
-Parameter|Meaning
+### Properties
+Property|Meaning
 ---------|-------
 `element`|An HTMLDivElement used to represent the Oneko in the document.
 `frameCount`|How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
