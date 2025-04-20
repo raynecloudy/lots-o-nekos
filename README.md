@@ -48,6 +48,7 @@ Property|Meaning
 `element`|An HTMLDivElement used to represent the Oneko in the document.
 `frameCount`|How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
 `idleTime`|How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
+`recursiveAnimating`|Controls if `_onAnimationFrame()` is recursively called after each completion of itself.
 `source`|The path to an image file used to represent the Oneko, as a string.
 `speed`|How far the Oneko runs per update, in pixels.
 `spriteSets`|A keyed list of arrays of points ([number, number]), defined as animations.

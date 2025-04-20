@@ -6,6 +6,12 @@
  */
 class Oneko extends EventTarget {
   /**
+   * Controls if _onAnimationFrame() is recursively called after each completion of itself.
+   * @type {boolean}
+   */
+  recursiveAnimating;
+
+  /**
    * The Oneko's `element`'s position on the X axis, in pixels.
    * @type {number}
    */
@@ -269,6 +275,7 @@ class Oneko extends EventTarget {
     this.speed = 10;
     this.source = "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
     this.updateSpeed = 100;
+    this.recursiveAnimating = true;
     
     this.element = document.createElement("div");
 
@@ -335,7 +342,9 @@ class Oneko extends EventTarget {
       this._lastFrameTimestamp = timestamp;
       this._frame();
     }
-    window.requestAnimationFrame(this._onAnimationFrame);
+    if (this.recursiveAnimating === true) {
+      window.requestAnimationFrame(this._onAnimationFrame);
+    }
   }
 
   /**
