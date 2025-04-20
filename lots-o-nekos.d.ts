@@ -10,7 +10,7 @@ declare module "lots-o-nekos" {
     targetY: number;
     frameCount: number;
     idleTime: number;
-    idleAnimation: number;
+    idleAnimation: OnekoIdleAnimation;
     idleAnimationFrame: number;
     _lastFrameTimestamp: number | null;
     _events: {
@@ -35,8 +35,9 @@ declare module "lots-o-nekos" {
       S: number[][],
       SW: number[][],
       W: number[][],
-      NW: number[][],
+      NW: number[][]
     };
   }
-  export type OnekoSource = "ace"|"black"|"bunny"|"calico"|"default"|"eevee"|"esmeralda"|"fox"|"ghost"|"gray"|"jess"|"kina"|"lucy"|"maia"|"maria"|"mike"|"silver"|"silversky"|"snuupy"|"spirit"|"tora"|"valentine";
+  export type OnekoSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
+  export type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null;
 }

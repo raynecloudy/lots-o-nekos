@@ -72,8 +72,8 @@ class Oneko extends EventTarget {
   idleTime;
 
   /**
-   * How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
-   * @type {number}
+   * The idle animation that's currently playing. `null` means the regular idle animation of being played.
+   * @type {import("lots-o-nekos").OnekoIdleAnimation}
    */
   idleAnimation;
 
