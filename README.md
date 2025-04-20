@@ -62,6 +62,7 @@ Property|Meaning
 ### Functions
 Function|Meaning
 --------|-------
+`setSourceDB(sourceName: OnekoSource): void`|Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
 `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
 `_onAnimationFrame(timestamp: number): void`|Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
 `_setSprite(name: string, frame: number): void`|Sets the sprite image to a given frame of a given animation.
