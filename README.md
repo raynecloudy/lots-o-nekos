@@ -72,7 +72,7 @@ Function|Meaning
 
 ### Events
 Event|Fired after...
------|-------------
+-----|--------------
 `draw`|The _draw() method is finished.
 `startRunning`|Target coordinate becomes outside range, after alert animation plays.
 `stopRunning`|Target coordinate becomes inside range.
