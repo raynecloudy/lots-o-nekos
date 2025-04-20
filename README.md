@@ -25,7 +25,7 @@ const oneko = new Oneko();
 ```
 
 ## From GitHub
-1. Download `lots-o-nekos.js` and your choice of cat from https://github.com/raynecloudy/oneko_db/ and place both files in your website's home directory.
+1. Download `lots-o-nekos.js` and place the file in your website's home directory.
 2. Paste this code in the `body` tag of all HTML files:
 ```html
 <script src="/lots-o-nekos.js"></script>
