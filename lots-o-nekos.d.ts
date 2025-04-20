@@ -16,7 +16,7 @@ declare module "lots-o-nekos" {
     _events: {
       "draw": Event,
       "startRunning": Event,
-      "stopRunning": Event,
+      "stopRunning": Event
     };
     spriteSets: {
       idle: number[][],
