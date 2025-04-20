@@ -94,11 +94,11 @@ class Oneko extends EventTarget {
      */
     "draw": new Event("draw"),
     /**
-     * Fired after the Oneko's alert animation has finished.
+     * Fired after target coordinate becomes outside range, after alert animation plays
      */
     "startRunning": new Event("startRunning"),
     /**
-     * Fired after the Oneko reaches the target coordinates and stops moving.
+     * Fired after target coordinate becomes inside range.
      */
     "stopRunning": new Event("stopRunning")
   };

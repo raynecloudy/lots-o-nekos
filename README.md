@@ -71,11 +71,11 @@ Function|Meaning
 `_draw(): void`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
 
 ### Events
-Event|Fired when...
+Event|Fired after...
 -----|-------------
-`draw`|Oneko is drawn
-`startRunning`|Target coordinate becomes outside range, after alert animation plays
-`stopRunning`|Target coordinate becomes inside range
+`draw`|The _draw() method is finished.
+`startRunning`|Target coordinate becomes outside range, after alert animation plays.
+`stopRunning`|Target coordinate becomes inside range.
 
 <div align="center">
   <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="oneko running">
