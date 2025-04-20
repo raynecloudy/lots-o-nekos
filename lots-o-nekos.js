@@ -320,6 +320,7 @@ class Oneko extends EventTarget {
    * 
    * Recently added images may not appear in the selector.
    * @param {import("lots-o-nekos").OnekoSource} sourceName The name of the image to access from the source database
+   * @readonly
    */
   setSourceDB(sourceName) {
     this.source = `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
