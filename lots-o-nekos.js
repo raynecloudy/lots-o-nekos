@@ -89,8 +89,17 @@ class Oneko extends EventTarget {
    * @readonly
    */
   _events = {
+    /**
+     * Fired after the _draw() method is finished.
+     */
     "draw": new Event("draw"),
+    /**
+     * Fired after the Oneko's alert animation has finished.
+     */
     "startRunning": new Event("startRunning"),
+    /**
+     * Fired after the Oneko reaches the target coordinates and stops moving.
+     */
     "stopRunning": new Event("stopRunning")
   };
 
