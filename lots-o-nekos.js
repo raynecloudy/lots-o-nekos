@@ -271,6 +271,16 @@ class Oneko extends EventTarget {
     this.updateSpeed = 100;
     
     this.element = document.createElement("div");
+
+    this.element.class = "oneko";
+    this.element.ariaHidden = true;
+    this.element.style.width = "32px";
+    this.element.style.height = "32px";
+    this.element.style.position = "fixed";
+    this.element.style.pointerEvents = "none";
+    this.element.style.imageRendering = "pixelated";
+    this.element.style.zIndex = 2147483647;
+    
     this.element = document.body.appendChild(this.element);
     
     this.targetX = this.x;
@@ -463,16 +473,8 @@ class Oneko extends EventTarget {
    * @readonly
    */
   _draw() {
-    this.element.id = "oneko";
-    this.element.ariaHidden = true;
-    this.element.style.width = "32px";
-    this.element.style.height = "32px";
-    this.element.style.position = "fixed";
-    this.element.style.pointerEvents = "none";
-    this.element.style.imageRendering = "pixelated";
     this.element.style.left = `${this.x - 16}px`;
     this.element.style.top = `${this.y - 16}px`;
-    this.element.style.zIndex = 2147483647;
     this.element.style.backgroundImage = `url(${this.source})`;
 
     this.dispatchEvent(this._events.draw);
