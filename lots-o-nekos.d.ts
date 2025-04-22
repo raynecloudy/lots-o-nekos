@@ -10,7 +10,6 @@ declare module "lots-o-nekos" {
     targetY: number;
     frameCount: number;
     idleTime: number;
-    idleAnimation: OnekoIdleAnimation;
     idleAnimationFrame: number;
     _lastFrameTimestamp: number | null;
     _events: {
