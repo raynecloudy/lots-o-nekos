@@ -38,6 +38,4 @@ declare module "lots-o-nekos" {
       NW: number[][]
     };
   }
-  export type OnekoSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
-  export type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null;
 }

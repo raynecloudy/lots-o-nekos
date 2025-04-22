@@ -73,7 +73,7 @@ class Oneko extends EventTarget {
 
   /**
    * The idle animation that's currently playing. `null` means the regular idle animation of being played.
-   * @type {import("lots-o-nekos").OnekoIdleAnimation}
+   * @type {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null}
    */
   idleAnimation;
 
@@ -319,7 +319,7 @@ class Oneko extends EventTarget {
    * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
    * 
    * Recently added images may not appear in the selector.
-   * @param {import("lots-o-nekos").OnekoSource} sourceName The name of the image to access from the source database
+   * @param {"ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine"} sourceName The name of the image to access from the source database
    * @readonly
    */
   setSourceDB(sourceName) {
