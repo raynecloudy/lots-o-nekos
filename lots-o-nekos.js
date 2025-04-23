@@ -10,10 +10,10 @@
  */
 class Oneko extends EventTarget {
   /**
-   * Controls if _onAnimationFrame() is recursively called after each completion of itself.
+   * Controls if _onAnimationFrame() is loops after each completion of itself.
    * @type {boolean}
    */
-  recursiveAnimating;
+  loopAnimating;
 
   /**
    * Controls if the alert animation is skipped before running begins.
