@@ -49,7 +49,7 @@ Property|Meaning
 `frameCount`|How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
 `idleAnimation`|The idle animation that's currently playing. `null` means the regular idle animation of being played.
 `idleTime`|How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
-`loopAnimating`|Controls if `_onAnimationFrame()` is recursively called after each completion of itself.
+`loopAnimating`|Controls if `_onAnimationFrame()` loops called after each completion of itself.
 `source`|The path to an image file used to represent the Oneko, as a string.
 `speed`|How far the Oneko runs per update, in pixels.
 `spriteSets`|A keyed list of arrays of points ([number, number]), defined as animations.

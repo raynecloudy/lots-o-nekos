@@ -10,7 +10,7 @@
  */
 class Oneko extends EventTarget {
   /**
-   * Controls if _onAnimationFrame() is loops after each completion of itself.
+   * Controls if _onAnimationFrame() loops after each completion of itself.
    * @type {boolean}
    */
   loopAnimating;
