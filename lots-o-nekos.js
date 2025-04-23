@@ -1,6 +1,10 @@
 // original oneko.js: https://github.com/adryd325/oneko.js/
 // modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
+
+// if not using as a module, please remove the export line at the bottom! the script will error and not run if you don't!
+
+
 /**
  * An Oneko.
  */
