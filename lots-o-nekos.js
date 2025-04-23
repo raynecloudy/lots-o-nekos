@@ -16,6 +16,12 @@ class Oneko extends EventTarget {
   recursiveAnimating;
 
   /**
+   * Controls if the alert animation is skipped before running begins.
+   * @type {boolean}
+   */
+  skipAlertAnimation;
+
+  /**
    * The Oneko's `element`'s position on the X axis, in pixels.
    * @type {number}
    */
@@ -455,15 +461,22 @@ class Oneko extends EventTarget {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
 
-    if (this.idleTime > 1) {
-      this._setSprite("alert", 0);
-      // count down after being alerted before moving
-      this.idleTime = Math.min(this.idleTime, 7);
-      this.idleTime -= 1;
-      if (this.idleTime === 1) {
+    if (this.skipAlertAnimation === false) {
+      if (this.idleTime > 1) {
+        this._setSprite("alert", 0);
+        // count down after being alerted before moving
+        this.idleTime = Math.min(this.idleTime, 7);
+        this.idleTime -= 1;
+        if (this.idleTime === 1) {
+          this.dispatchEvent(this._events.startRunning);
+        }
+        return;
+      }
+    } else {
+      if (this.idleTime > 1) {
+        this.idleTime = 1;
         this.dispatchEvent(this._events.startRunning);
       }
-      return;
     }
 
     let direction;
