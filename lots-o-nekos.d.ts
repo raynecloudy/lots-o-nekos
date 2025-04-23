@@ -1,5 +1,6 @@
 declare module "lots-o-nekos" {
   export class Oneko {
+    recursiveAnimating: boolean;
     x: number;
     y: number;
     speed: number;
