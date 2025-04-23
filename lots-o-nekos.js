@@ -286,6 +286,7 @@ class Oneko extends EventTarget {
     this.source = "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
     this.updateSpeed = 100;
     this.recursiveAnimating = true;
+    this.skipAlertAnimation = false;
     
     this.element = document.createElement("div");
 
