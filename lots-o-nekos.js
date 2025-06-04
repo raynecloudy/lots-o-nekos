@@ -18,7 +18,7 @@ class Oneko extends EventTarget {
    * Controls if onAnimationFrame() loops after each completion of itself.
    * @type {boolean}
    */
-  loopAnimating;
+  recursiveAnimating;
 
   /**
    * Controls if the alert animation is skipped before running begins.
