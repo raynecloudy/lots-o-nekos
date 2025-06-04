@@ -18,7 +18,7 @@ An HTMLDivElement used to represent the Oneko in the document.
 Default value: `HTMLDivElement`
 
 #### `events`
-> since: 1.1.0
+> since: 3.0.0
 
 A keyed list of Events fired by the Oneko object.
 
@@ -60,7 +60,7 @@ How long the Oneko has been idle for. Measured by how many times the Oneko's `el
 Default value: `0`
 
 #### `lastFrameTimestamp: number`
-> since: 1.0.0
+> since: 3.0.0
 
 The timestamp of the last time the Oneko's `element` was updated.
 
@@ -203,34 +203,38 @@ Default value: `16`
 ### Methods
 
 #### `draw(): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Renders the Oneko using its `element`. Fires the `draw` event after completion.
 
 #### `frame(): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Controls all animation logic.
 
 #### `idle(): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Controls idle animation logic (scratching, sleeping, etc.)
 
 #### `moveTo(x: number, y: number): void`
+> since: 3.0.0
+
 Sets the Oneko's target coordinates and element position.
 
 #### `onAnimationFrame(timestamp: number): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
 
 #### `resetIdleAnimation(): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Resets the idle animation.
 
 #### `setPosition(x: number, y: number): void`
+> since: 3.0.0
+
 Sets the coordinates for the Oneko element to be positioned at.
 
 #### `setSourceDB(sourceName: OnekoDatabaseSource): void`
@@ -239,7 +243,7 @@ Sets the coordinates for the Oneko element to be positioned at.
 Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
 
 #### `setSprite(name: string, frame: number): void`
-> since: 1.0.0
+> since: 3.0.0
 
 Sets the sprite image to a given frame of a given animation.
 
@@ -251,7 +255,7 @@ Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
 ### Events
 
 #### `draw`
-> since: 2.0.0
+> since: 1.1.0
 
 Fires when the `draw` method is finished.
 
