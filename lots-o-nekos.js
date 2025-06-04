@@ -426,7 +426,7 @@ class Oneko extends EventTarget {
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setpositionx-number-y-number-void)
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
-   * @since 3.0.0
+   * @since 2.3.0
    */
   setPosition(x, y) {
     this.x = x;
@@ -439,7 +439,7 @@ class Oneko extends EventTarget {
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#movetox-number-y-number-void)
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
-   * @since 3.0.0
+   * @since 2.3.0
    */
   moveTo(x, y) {
     this.targetX = x;
@@ -466,7 +466,7 @@ class Oneko extends EventTarget {
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#onanimationframetimestamp-number-void)
    * @param {number} timestamp Duration since last update.
-   * @since 3.0.0
+   * @since 2.3.0
    */
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
@@ -493,7 +493,7 @@ class Oneko extends EventTarget {
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-void)
    * @param {string} name Name of animation to access. The Y value on the sprite sheet.
    * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
-   * @since 3.0.0
+   * @since 2.3.0
    */
   setSprite(name, frame) {
     const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
@@ -505,7 +505,7 @@ class Oneko extends EventTarget {
    * Resets the idle animation.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#resetidleanimation-void)
-   * @since 3.0.0
+   * @since 2.3.0
    */
   resetIdleAnimation() {
     this.idleAnimation = null;
@@ -516,7 +516,7 @@ class Oneko extends EventTarget {
    * Controls idle animation logic (scratching, sleeping, etc.)
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idle-void)
-   * @since 3.0.0
+   * @since 2.3.0
    */
   idle() {
     if (this.idleTime === 1) {
@@ -582,7 +582,7 @@ class Oneko extends EventTarget {
    * Controls all animation logic.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#frame-void)
-   * @since 3.0.0
+   * @since 2.3.0
    */
   frame() {
     this.frameCount += 1;
@@ -636,7 +636,7 @@ class Oneko extends EventTarget {
    * Renders the Oneko using its `element`. Fires the `draw` event after completion.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-void)
-   * @since 3.0.0
+   * @since 2.3.0
    */
   draw() {
     this.element.style.left = `${this.x - 16}px`;
@@ -647,45 +647,45 @@ class Oneko extends EventTarget {
   }
 
   /**
-   * Will be removed in 3.1.0. Use `lastFrameTimestamp` instead.
+   * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
    * @deprecated
    */
   _lastFrameTimestamp;
   /**
-   * Will be removed in 3.1.0. Use `events` instead.
+   * Will be removed in 2.5.0. Use `events` instead.
    * @deprecated
    */
   _events = events
   /**
-   * Will be removed in 3.1.0. Use `draw()` instead.
+   * Will be removed in 2.5.0. Use `draw()` instead.
    * @deprecated
    */
   _draw() {
     this.draw();
   }
   /**
-   * Will be removed in 3.1.0. Use `frame()` instead.
+   * Will be removed in 2.5.0. Use `frame()` instead.
    * @deprecated
    */
   _frame() {
     this.frame();
   }
   /**
-   * Will be removed in 3.1.0. Use `onAnimationFrame()` instead.
+   * Will be removed in 2.5.0. Use `onAnimationFrame()` instead.
    * @deprecated
    */
   _onAnimationFrame() {
     this.onAnimationFrame();
   }
   /**
-   * Will be removed in 3.1.0. Use `resetIdleAnimation()` instead.
+   * Will be removed in 2.5.0. Use `resetIdleAnimation()` instead.
    * @deprecated
    */
   _resetIdleAnimation() {
     this.resetIdleAnimation();
   }
   /**
-   * Will be removed in 3.1.0. Use `idle()` instead.
+   * Will be removed in 2.5.0. Use `idle()` instead.
    * @deprecated
    */
   _idle() {
