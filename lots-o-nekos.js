@@ -10,7 +10,7 @@
  */
 class Oneko extends EventTarget {
   /**
-   * Controls if _onAnimationFrame() loops after each completion of itself.
+   * Controls if onAnimationFrame() loops after each completion of itself.
    * @type {boolean}
    */
   loopAnimating;
@@ -106,7 +106,7 @@ class Oneko extends EventTarget {
    */
   events = {
     /**
-     * Fired after the _draw() method is finished.
+     * Fired after the draw() method is finished.
      */
     "draw": new Event("draw"),
     /**
