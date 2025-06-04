@@ -286,8 +286,8 @@ class Oneko extends EventTarget {
       return;
     };
     
-    this.x = 100;
-    this.y = 100;
+    this.x = 16;
+    this.y = 16;
     this.speed = 10;
     this.source = "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
     this.updateSpeed = 100;
