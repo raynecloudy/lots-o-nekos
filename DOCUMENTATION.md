@@ -1,6 +1,7 @@
 # lots-o-nekos Documentation
 
 ## `Oneko` class
+> since: 1.0.0
 
 ### Constructors
 `Oneko` objects are constructed using this syntax:
@@ -268,3 +269,44 @@ Fires when the target coordinate becomes outside range, after alert animation pl
 > since: 2.0.0
 
 Fires when target coordinate becomes inside range.
+
+## `OnekoDatabaseSource` type (private)
+> since: 3.0.0
+
+Used as `Oneko.prototype.setSourceDB`'s `sourceName` argument's type.
+```ts
+type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
+```
+
+## `OnekoIdleAnimation` type (private)
+> since 3.0.0
+
+Used as `Oneko.prototype.idleAnimation`'s type.
+```ts
+type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null;
+```
+
+## `OnekoOptions` type (private)
+> since: 3.0.0
+
+Used as the `Oneko` class constructor's `options` argument's type.
+```ts
+type OnekoOptions = {
+  element?: HTMLDivElement | null,
+  frameCount?: number,
+  idleAnimation?: OnekoIdleAnimation,
+  idleAnimationFrame?: number,
+  idleTime?: number,
+  lastFrameTimestamp?: number,
+  recursiveAnimating?: boolean,
+  skipAlertAnimation?: boolean,
+  skipElementInit?: boolean, // Determines if the Oneko's element has automatic styling applied to it.
+  source?: number,
+  speed?: number,
+  targetX?: number,
+  targetY?: number,
+  updateSpeed?: number,
+  x?: number,
+  y?: number
+};
+```
