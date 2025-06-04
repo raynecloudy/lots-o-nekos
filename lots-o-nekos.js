@@ -354,7 +354,7 @@ class Oneko extends EventTarget {
   };
 
   /**
-   * @param {OnekoOptions} options Options for the Oneko.
+   * @param {OnekoOptions} [options] Options for the Oneko.
    */
   constructor(options) {
     super();
