@@ -5,8 +5,8 @@
 
 ### Constructors
 `Oneko` objects are constructed using this syntax:
-```js
-new Oneko();
+```ts
+new Oneko(options: OnekoOptions);
 ```
 
 ### Properties
