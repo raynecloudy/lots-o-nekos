@@ -101,13 +101,11 @@ class Oneko extends EventTarget {
   /**
    * The timestamp of the last time the Oneko's `element` was updated.
    * @type {number}
-   * @readonly
    */
   lastFrameTimestamp;
 
   /**
    * A keyed list of Events fired by the Oneko object.
-   * @readonly
    */
   events = {
     /**
@@ -327,7 +325,6 @@ class Oneko extends EventTarget {
    * Sets the coordinates for the Oneko to run to.
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
-   * @readonly
    */
   setTarget(x, y) {
     this.targetX = x;
@@ -338,7 +335,6 @@ class Oneko extends EventTarget {
    * Sets the coordinates for the Oneko element to be positioned at.
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
-   * @readonly
    */
   setPosition(x, y) {
     this.x = x;
@@ -349,7 +345,6 @@ class Oneko extends EventTarget {
    * Sets the Oneko's target coordinates and element position.
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
-   * @readonly
    */
   moveTo(x, y) {
     this.targetX = x;
@@ -363,7 +358,6 @@ class Oneko extends EventTarget {
    * 
    * Recently added images may not appear in the selector.
    * @param {OnekoDatabaseSource} sourceName The name of the image to access from the source database
-   * @readonly
    */
   setSourceDB(sourceName) {
     this.source = `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
@@ -372,7 +366,6 @@ class Oneko extends EventTarget {
   /**
    * Runs every frame. Enables Oneko animations.
    * @param {number} timestamp Duration since last update.
-   * @readonly
    */
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
@@ -395,7 +388,6 @@ class Oneko extends EventTarget {
    * Sets the sprite image to a given frame of a given animation.
    * @param {string} name Name of animation to access. The Y value on the sprite sheet.
    * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
-   * @readonly
    */
   setSprite(name, frame) {
     const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
@@ -405,7 +397,6 @@ class Oneko extends EventTarget {
 
   /**
    * Resets the idle animation.
-   * @readonly
    */
   resetIdleAnimation() {
     this.idleAnimation = null;
@@ -414,7 +405,6 @@ class Oneko extends EventTarget {
 
   /**
    * Controls idle animation logic (scratching, sleeping, etc.)
-   * @readonly
    */
   idle() {
     if (this.idleTime === 1) {
@@ -478,7 +468,6 @@ class Oneko extends EventTarget {
 
   /**
    * Controls all animation logic.
-   * @readonly
    */
   frame() {
     this.frameCount += 1;
@@ -530,7 +519,6 @@ class Oneko extends EventTarget {
 
   /**
    * Renders the Oneko using its `element`. Fires the `draw` event after completion.
-   * @readonly
    */
   draw() {
     this.element.style.left = `${this.x - 16}px`;
