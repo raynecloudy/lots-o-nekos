@@ -98,13 +98,13 @@ class Oneko extends EventTarget {
    * @type {number}
    * @readonly
    */
-  _lastFrameTimestamp;
+  lastFrameTimestamp;
 
   /**
    * A keyed list of Events fired by the Oneko object.
    * @readonly
    */
-  _events = {
+  events = {
     /**
      * Fired after the _draw() method is finished.
      */
@@ -307,12 +307,12 @@ class Oneko extends EventTarget {
     this.idleTime = 0;
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
-    this._lastFrameTimestamp;
+    this.lastFrameTimestamp;
     
-    this._draw();
+    this.draw();
 
-    this._onAnimationFrame = this._onAnimationFrame.bind(this);
-    window.requestAnimationFrame(this._onAnimationFrame);
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    window.requestAnimationFrame(this.onAnimationFrame);
   }
 
   /**
@@ -342,20 +342,20 @@ class Oneko extends EventTarget {
    * @param {number} timestamp Duration since last update.
    * @readonly
    */
-  _onAnimationFrame(timestamp) {
+  onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
     if (!this.element.isConnected) {
       return;
     }
-    if (!this._lastFrameTimestamp) {
-      this._lastFrameTimestamp = timestamp;
+    if (!this.lastFrameTimestamp) {
+      this.lastFrameTimestamp = timestamp;
     }
-    if (timestamp - this._lastFrameTimestamp > this.updateSpeed) {
-      this._lastFrameTimestamp = timestamp;
-      this._frame();
+    if (timestamp - this.lastFrameTimestamp > this.updateSpeed) {
+      this.lastFrameTimestamp = timestamp;
+      this.frame();
     }
     if (this.recursiveAnimating === true) {
-      window.requestAnimationFrame(this._onAnimationFrame);
+      window.requestAnimationFrame(this.onAnimationFrame);
     }
   }
 
@@ -365,17 +365,17 @@ class Oneko extends EventTarget {
    * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
    * @readonly
    */
-  _setSprite(name, frame) {
+  setSprite(name, frame) {
     const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
     this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
-    this._draw();
+    this.draw();
   }
 
   /**
    * Resets the idle animation.
    * @readonly
    */
-  _resetIdleAnimation() {
+  resetIdleAnimation() {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
   }
@@ -384,9 +384,9 @@ class Oneko extends EventTarget {
    * Controls idle animation logic (scratching, sleeping, etc.)
    * @readonly
    */
-  _idle() {
+  idle() {
     if (this.idleTime === 1) {
-      this.dispatchEvent(this._events.stopRunning);
+      this.dispatchEvent(this.events.stopRunning);
     }
 
     this.idleTime += 1;
@@ -419,12 +419,12 @@ class Oneko extends EventTarget {
     switch (this.idleAnimation) {
       case "sleeping":
         if (this.idleAnimationFrame < 8) {
-          this._setSprite("tired", 0);
+          this.setSprite("tired", 0);
           break;
         }
-        this._setSprite("sleeping", Math.floor(this.idleAnimationFrame / 4));
+        this.setSprite("sleeping", Math.floor(this.idleAnimationFrame / 4));
         if (this.idleAnimationFrame > 192) {
-          this._resetIdleAnimation();
+          this.resetIdleAnimation();
         }
         break;
       case "scratchWallN":
@@ -432,13 +432,13 @@ class Oneko extends EventTarget {
       case "scratchWallE":
       case "scratchWallW":
       case "scratchSelf":
-        this._setSprite(this.idleAnimation, this.idleAnimationFrame);
+        this.setSprite(this.idleAnimation, this.idleAnimationFrame);
         if (this.idleAnimationFrame > 9) {
-          this._resetIdleAnimation();
+          this.resetIdleAnimation();
         }
         break;
       default:
-        this._setSprite("idle", 0);
+        this.setSprite("idle", 0);
         return;
     }
     this.idleAnimationFrame += 1;
@@ -448,14 +448,14 @@ class Oneko extends EventTarget {
    * Controls all animation logic.
    * @readonly
    */
-  _frame() {
+  frame() {
     this.frameCount += 1;
     const diffX = this.x - this.targetX;
     const diffY = this.y - this.targetY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
     if (distance < this.speed || distance < 48) {
-      this._idle();
+      this.idle();
       return;
     }
 
@@ -464,19 +464,19 @@ class Oneko extends EventTarget {
 
     if (this.skipAlertAnimation === false) {
       if (this.idleTime > 1) {
-        this._setSprite("alert", 0);
+        this.setSprite("alert", 0);
         // count down after being alerted before moving
         this.idleTime = Math.min(this.idleTime, 7);
         this.idleTime -= 1;
         if (this.idleTime === 1) {
-          this.dispatchEvent(this._events.startRunning);
+          this.dispatchEvent(this.events.startRunning);
         }
         return;
       }
     } else {
       if (this.idleTime > 1) {
         this.idleTime = 1;
-        this.dispatchEvent(this._events.startRunning);
+        this.dispatchEvent(this.events.startRunning);
       }
     }
 
@@ -485,7 +485,7 @@ class Oneko extends EventTarget {
     direction += diffY / distance < -0.5 ? "S" : "";
     direction += diffX / distance > 0.5 ? "W" : "";
     direction += diffX / distance < -0.5 ? "E" : "";
-    this._setSprite(direction, this.frameCount);
+    this.setSprite(direction, this.frameCount);
 
     this.x -= (diffX / distance) * this.speed;
     this.y -= (diffY / distance) * this.speed;
@@ -493,19 +493,19 @@ class Oneko extends EventTarget {
     this.x = Math.min(Math.max(16, this.x), window.innerWidth - 16);
     this.y = Math.min(Math.max(16, this.y), window.innerHeight - 16);
 
-    this._draw();
+    this.draw();
   }
 
   /**
    * Renders the Oneko using its `element`. Fires the `draw` event after completion.
    * @readonly
    */
-  _draw() {
+  draw() {
     this.element.style.left = `${this.x - 16}px`;
     this.element.style.top = `${this.y - 16}px`;
     this.element.style.backgroundImage = `url(${this.source})`;
 
-    this.dispatchEvent(this._events.draw);
+    this.dispatchEvent(this.events.draw);
   }
 }
 
