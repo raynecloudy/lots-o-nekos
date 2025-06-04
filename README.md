@@ -46,10 +46,12 @@ new Oneko();
 Property|Meaning
 ---------|-------
 `element`|An HTMLDivElement used to represent the Oneko in the document.
+`events`|A keyed list of Events fired by the Oneko object.
 `frameCount`|How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
 `idleAnimation`|The idle animation that's currently playing. `null` means the regular idle animation of being played.
 `idleTime`|How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
-`loopAnimating`|Controls if `_onAnimationFrame()` loops called after each completion of itself.
+`lastFrameTimestamp`|The timestamp of the last time the Oneko's `element` was updated.
+`loopAnimating`|Controls if `onAnimationFrame()` loops called after each completion of itself.
 `source`|The path to an image file used to represent the Oneko, as a string.
 `speed`|How far the Oneko runs per update, in pixels.
 `spriteSets`|A keyed list of arrays of points ([number, number]), defined as animations.
@@ -58,25 +60,23 @@ Property|Meaning
 `updateSpeed`|How fast the Oneko updates its animations, in milliseconds.
 `x`|The Oneko's `element`'s position on the X axis, in pixels.
 `y`|The Oneko's `element`'s position on the Y axis, in pixels.
-`_lastFrameTimestamp`|The timestamp of the last time the Oneko's `element` was updated.
-`_events`|A keyed list of Events fired by the Oneko object.
 
 ### Functions
 Function|Meaning
 --------|-------
+`draw(): void`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
+`frame(): void`|Controls all animation logic.
+`idle(): void`|Controls idle animation logic (scratching, sleeping, etc.)
+`onAnimationFrame(timestamp: number): void`|Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
+`resetIdleAnimation(): void`|Resets the idle animation.
 `setSourceDB(sourceName: OnekoSource): void`|Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
+`setSprite(name: string, frame: number): void`|Sets the sprite image to a given frame of a given animation.
 `setTarget(x: number, y: number): void`|Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
-`_onAnimationFrame(timestamp: number): void`|Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
-`_setSprite(name: string, frame: number): void`|Sets the sprite image to a given frame of a given animation.
-`_resetIdleAnimation(): void`|Resets the idle animation.
-`_idle(): void`|Controls idle animation logic (scratching, sleeping, etc.)
-`_frame(): void`|Controls all animation logic.
-`_draw(): void`|Renders the Oneko using its `element`. Fires the `draw` event after completion.
 
 ### Events
 Event|Fired after...
 -----|--------------
-`draw`|The _draw() method is finished.
+`draw`|The draw() method is finished.
 `startRunning`|Target coordinate becomes outside range, after alert animation plays.
 `stopRunning`|Target coordinate becomes inside range.
 
