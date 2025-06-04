@@ -67,7 +67,7 @@ The timestamp of the last time the Oneko's `element` was updated.
 
 Default value: `0`
 
-#### `recursiveAnimating: boolean`
+#### `loopAnimating: boolean`
 > since: 2.2.0
 
 Controls if `onAnimationFrame()` loops called after each completion of itself.
@@ -298,7 +298,7 @@ type OnekoOptions = {
   idleAnimationFrame?: number,
   idleTime?: number,
   lastFrameTimestamp?: number,
-  recursiveAnimating?: boolean,
+  loopAnimating?: boolean,
   skipAlertAnimation?: boolean,
   skipElementInit?: boolean, // Determines if the Oneko's element has automatic styling applied to it.
   source?: number,
