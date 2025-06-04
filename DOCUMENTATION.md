@@ -11,11 +11,15 @@ new Oneko();
 ### Properties
 
 #### `element: HTMLDivElement | null`
+> since: 1.0.0
+
 An HTMLDivElement used to represent the Oneko in the document.
 
 Default value: `HTMLDivElement`
 
 #### `events`
+> since: 1.1.0
+
 A keyed list of Events fired by the Oneko object.
 
 Default value:
@@ -28,51 +32,71 @@ Default value:
 ```
 
 #### `frameCount: number`
+> since: 1.0.0
+
 How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
 
 Default value: `0`
 
 #### `idleAnimation: OnekoIdleAnimation`
+> since: 1.0.0
+
 The idle animation that's currently playing. `null` means the regular idle animation of being played.
 
 Default value: `null`
 
 #### `idleAnimationFrame: number`
+> since: 1.0.0
+
 The current frame of the playing idle animation.
 
 Default value: `0`
 
 #### `idleTime: number`
+> since: 1.0.0
+
 How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
 
 Default value: `0`
 
 #### `lastFrameTimestamp: number`
+> since: 1.0.0
+
 The timestamp of the last time the Oneko's `element` was updated.
 
 Default value: `0`
 
 #### `recursiveAnimating: boolean`
+> since: 2.2.0
+
 Controls if `onAnimationFrame()` loops called after each completion of itself.
 
 Default value: `true`
 
 #### `skipAlertAnimation: boolean`
+> since: 2.2.0
+
 Controls if the alert animation is skipped before running begins.
 
 Default value: `false`
 
 #### `source: string`
+> since: 1.0.0
+
 The path to an image file used to represent the Oneko, as a string.
 
 Default value: `"https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png"`
 
 #### `speed: number`
+> since: 1.0.0
+
 How far the Oneko runs per update, in pixels.
 
 Default value: `10`
 
 #### `spriteSets`
+> since: 1.0.0
+
 A keyed list of arrays of points ([number, number]), defined as animations.
 
 Default value:
@@ -142,26 +166,36 @@ Default value:
 ```
 
 #### `targetX: number`
+> since: 1.0.0
+
 The X position the Oneko is running towards, in pixels.
 
 Default value: `16`
 
 #### `targetY: number`
+> since: 1.0.0
+
 The Y position the Oneko is running towards, in pixels.
 
 Default value: `16`
 
 #### `updateSpeed: number`
+> since: 1.0.0
+
 How fast the Oneko updates its animations, in milliseconds.
 
 Default value: `100`
 
 #### `x: number`
+> since: 1.0.0
+
 The Oneko's `element`'s position on the X axis, in pixels.
 
 Default value: `16`
 
 #### `y: number`
+> since: 1.0.0
+
 The Oneko's `element`'s position on the Y axis, in pixels.
 
 Default value: `16`
@@ -169,42 +203,64 @@ Default value: `16`
 ### Methods
 
 #### `draw(): void`
+> since: 1.0.0
+
 Renders the Oneko using its `element`. Fires the `draw` event after completion.
 
 #### `frame(): void`
+> since: 1.0.0
+
 Controls all animation logic.
 
 #### `idle(): void`
+> since: 1.0.0
+
 Controls idle animation logic (scratching, sleeping, etc.)
 
 #### `moveTo(x: number, y: number): void`
 Sets the Oneko's target coordinates and element position.
 
 #### `onAnimationFrame(timestamp: number): void`
+> since: 1.0.0
+
 Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
 
 #### `resetIdleAnimation(): void`
+> since: 1.0.0
+
 Resets the idle animation.
 
 #### `setPosition(x: number, y: number): void`
 Sets the coordinates for the Oneko element to be positioned at.
 
 #### `setSourceDB(sourceName: OnekoDatabaseSource): void`
+> since: 2.1.0
+
 Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
 
 #### `setSprite(name: string, frame: number): void`
+> since: 1.0.0
+
 Sets the sprite image to a given frame of a given animation.
 
 #### `setTarget(x: number, y: number): void`
+> since: 1.0.0
+
 Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.
 
 ### Events
 
 #### `draw`
+> since: 2.0.0
+
 Fires when the `draw` method is finished.
 
 #### `startRunning`
+> since: 2.0.0
+
 Fires when the target coordinate becomes outside range, after alert animation plays.
 
 ####  `stopRunning`
+> since: 2.0.0
+
 Fires when target coordinate becomes inside range.
