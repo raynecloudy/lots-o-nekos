@@ -6,8 +6,9 @@
 
 
 /**
- * @typedef {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null} OnekoIdleAnimation
  * @typedef {"ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine"} OnekoDatabaseSource
+ * @typedef {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null} OnekoIdleAnimation
+ * @typedef {{element?: HTMLDivElement | null, x?: number, y?: number, speed?: number, source?: string, updateSpeed?: number, recursiveAnimating?: boolean, skipAlertAnimation?: boolean, targetX?: number, targetY?: number, frameCount?: number, idleTime?: number, idleAnimation?: OnekoIdleAnimation, idleAnimationFrame?: number, lastFrameTimestamp?: number, skipElementInit?: boolean}} OnekoOptions
  */
 
 /**
@@ -352,7 +353,10 @@ class Oneko extends EventTarget {
     ],
   };
 
-  constructor() {
+  /**
+   * @param {OnekoOptions} options Options for the Oneko.
+   */
+  constructor(options) {
     super();
 
     const isReducedMotion =
@@ -363,34 +367,36 @@ class Oneko extends EventTarget {
       return;
     };
     
-    this.x = 16;
-    this.y = 16;
-    this.speed = 10;
-    this.source = "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
-    this.updateSpeed = 100;
-    this.recursiveAnimating = true;
-    this.skipAlertAnimation = false;
+    this.x = options.x ?? 16;
+    this.y = options.y ?? 16;
+    this.speed = options.speed ?? 10;
+    this.source = options.source ?? "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
+    this.updateSpeed = options.updateSpeed ?? 100;
+    this.recursiveAnimating = options.recursiveAnimating ?? true;
+    this.skipAlertAnimation = options.skipAlertAnimation ?? false;
     
-    this.element = document.createElement("div");
+    this.element = options.element === undefined ? document.createElement("div") : options.element;
 
-    this.element.className = "oneko";
-    this.element.ariaHidden = true;
-    this.element.style.width = "32px";
-    this.element.style.height = "32px";
-    this.element.style.position = "fixed";
-    this.element.style.pointerEvents = "none";
-    this.element.style.imageRendering = "pixelated";
-    this.element.style.zIndex = 2147483647;
-
-    this.element = document.body.appendChild(this.element);
+    if (options.skipElementInit !== true) {
+      this.element.className = "oneko";
+      this.element.ariaHidden = true;
+      this.element.style.width = "32px";
+      this.element.style.height = "32px";
+      this.element.style.position = "fixed";
+      this.element.style.pointerEvents = "none";
+      this.element.style.imageRendering = "pixelated";
+      this.element.style.zIndex = 2147483647;
+  
+      this.element = document.body.appendChild(this.element);
+    }
     
-    this.targetX = this.x;
-    this.targetY = this.y;
-    this.frameCount = 0;
-    this.idleTime = 0;
-    this.idleAnimation = null;
-    this.idleAnimationFrame = 0;
-    this.lastFrameTimestamp = 0;
+    this.targetX = options.targetX ?? this.x;
+    this.targetY = options.targetY ?? this.y;
+    this.frameCount = options.frameCount ?? 0;
+    this.idleTime = options.idleTime ?? 0;
+    this.idleAnimation = options.idleAnimation ?? null;
+    this.idleAnimationFrame = options.idleAnimationFrame ?? 0;
+    this.lastFrameTimestamp = options.lastFrameTimestamp ?? 0;
     
     this.draw();
 
