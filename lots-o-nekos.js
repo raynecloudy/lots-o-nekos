@@ -313,7 +313,7 @@ class Oneko extends EventTarget {
     this.idleTime = 0;
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
-    this.lastFrameTimestamp;
+    this.lastFrameTimestamp = 0;
     
     this.draw();
 
