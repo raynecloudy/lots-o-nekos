@@ -283,7 +283,10 @@ class Oneko extends EventTarget {
     const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-    if (isReducedMotion) return;
+    if (isReducedMotion) {
+      console.warn("The prefers-reduced-motion media query is set to reduce. The Oneko will not be initialized.");
+      return;
+    };
     
     this.x = 100;
     this.y = 100;
