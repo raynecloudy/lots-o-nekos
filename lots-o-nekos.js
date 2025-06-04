@@ -399,6 +399,7 @@ class Oneko extends EventTarget {
     this.idleAnimation = options.idleAnimation ?? null;
     this.idleAnimationFrame = options.idleAnimationFrame ?? 0;
     this.lastFrameTimestamp = options.lastFrameTimestamp ?? 0;
+    this._lastFrameTimestamp = options.lastFrameTimestamp ?? 0;
     
     this.draw();
 
@@ -474,9 +475,11 @@ class Oneko extends EventTarget {
     }
     if (!this.lastFrameTimestamp) {
       this.lastFrameTimestamp = timestamp;
+      this._lastFrameTimestamp = timestamp;
     }
     if (timestamp - this.lastFrameTimestamp > this.updateSpeed) {
       this.lastFrameTimestamp = timestamp;
+      this._lastFrameTimestamp = timestamp;
       this.frame();
     }
     if (this.loopAnimating === true) {
@@ -643,6 +646,16 @@ class Oneko extends EventTarget {
     this.dispatchEvent(this.events.draw);
   }
 
+  /**
+   * Will be removed in 3.1.0. Use `lastFrameTimestamp` instead.
+   * @deprecated
+   */
+  _lastFrameTimestamp;
+  /**
+   * Will be removed in 3.1.0. Use `events` instead.
+   * @deprecated
+   */
+  _events = events
   /**
    * Will be removed in 3.1.0. Use `draw()` instead.
    * @deprecated
