@@ -335,6 +335,30 @@ class Oneko extends EventTarget {
   }
 
   /**
+   * Sets the coordinates for the Oneko element to be positioned at.
+   * @param {number} x X location, in pixels.
+   * @param {number} y Y location, in pixels.
+   * @readonly
+   */
+  setPosition(x, y) {
+    this.x = x;
+    this.x = y;
+  }
+
+  /**
+   * Sets the Oneko's target coordinates and element position.
+   * @param {number} x X location, in pixels.
+   * @param {number} y Y location, in pixels.
+   * @readonly
+   */
+  moveTo(x, y) {
+    this.targetX = x;
+    this.targetY = y;
+    this.x = x;
+    this.x = y;
+  }
+
+  /**
    * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
    * 
    * Recently added images may not appear in the selector.
