@@ -1,7 +1,7 @@
 {
   "name": "lots-o-nekos",
   "version": "2.3.0",
-  "description": "cat follow mouse real! now a javascript library with additionyal features for an elevated oneko experience ≽^•⩊•^≼",
+  "description": "cat follow mouse real! now an npm package with additionyal features for an elevated oneko experience ≽^•⩊•^≼",
   "homepage": "https://github.com/raynecloudy/lots-o-nekos#readme",
   "bugs": {
     "url": "https://github.com/raynecloudy/lots-o-nekos/issues"
