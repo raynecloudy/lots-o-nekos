@@ -37,6 +37,11 @@ The idle animation that's currently playing. `null` means the regular idle anima
 
 Default value: `null`
 
+#### `idleAnimationFrame: number`
+The current frame of the playing idle animation.
+
+Default value: `0`
+
 #### `idleTime: number`
 How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
 
@@ -171,6 +176,9 @@ Controls all animation logic.
 
 #### `idle(): void`
 Controls idle animation logic (scratching, sleeping, etc.)
+
+#### `moveTo(x: number, y: number): void`
+Sets the Oneko's target coordinates and element position.
 
 #### `onAnimationFrame(timestamp: number): void`
 Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
