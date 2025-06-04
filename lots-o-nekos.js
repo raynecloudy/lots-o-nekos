@@ -366,6 +366,8 @@ class Oneko extends EventTarget {
       console.warn("The prefers-reduced-motion media query is set to reduce. The Oneko will not be initialized.");
       return;
     };
+
+    options = options ?? {};
     
     this.x = options.x ?? 16;
     this.y = options.y ?? 16;
