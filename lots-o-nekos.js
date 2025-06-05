@@ -689,7 +689,7 @@ class Oneko extends EventTarget {
    * @readonly
    * @deprecated
    */
-  _events = events
+  _events = this.events
   /**
    * Will be removed in 2.5.0. Use `draw()` instead.
    * @deprecated
@@ -707,9 +707,10 @@ class Oneko extends EventTarget {
   /**
    * Will be removed in 2.5.0. Use `onAnimationFrame()` instead.
    * @deprecated
+   * @param {number} timestamp Duration since last update
    */
-  _onAnimationFrame() {
-    return this.onAnimationFrame();
+  _onAnimationFrame(timestamp) {
+    return this.onAnimationFrame(timestamp);
   }
   /**
    * Will be removed in 2.5.0. Use `resetIdleAnimation()` instead.
