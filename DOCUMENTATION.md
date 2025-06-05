@@ -203,52 +203,52 @@ Default value: `16`
 
 ### Methods
 
-#### `draw(): void`
+#### `draw(): Oneko`
 > since: 2.3.0
 
 Updates the Oneko element's position and image. Fires the `draw` event after completion.
 
-#### `frame(): void`
+#### `frame(): Oneko`
 > since: 2.3.0
 
 Controls all animation logic.
 
-#### `idle(): void`
+#### `idle(): Oneko`
 > since: 2.3.0
 
 Controls idle animation logic (scratching, sleeping, etc.)
 
-#### `moveTo(x: number, y: number): void`
+#### `moveTo(x: number, y: number): Oneko`
 > since: 2.3.0
 
 Sets the Oneko's target coordinates and element position.
 
-#### `onAnimationFrame(timestamp: number): void`
+#### `onAnimationFrame(timestamp: number): Oneko`
 > since: 2.3.0
 
 Runs every frame. Enables Oneko animations. `timestamp` is the duration since the last update.
 
-#### `resetIdleAnimation(): void`
+#### `resetIdleAnimation(): Oneko`
 > since: 2.3.0
 
 Resets the idle animation.
 
-#### `setPosition(x: number, y: number): void`
+#### `setPosition(x: number, y: number): Oneko`
 > since: 2.3.0
 
 Sets the coordinates for the Oneko element to be positioned at.
 
-#### `setSourceDB(sourceName: OnekoDatabaseSource): void`
+#### `setSourceDB(sourceName: OnekoDatabaseSource): Oneko`
 > since: 2.1.0
 
 Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
 
-#### `setSprite(name: string, frame: number): void`
+#### `setSprite(name: string, frame: number): Oneko`
 > since: 2.3.0
 
 Sets the sprite image to a given frame of a given animation.
 
-#### `setTarget(x: number, y: number): void`
+#### `setTarget(x: number, y: number): Oneko`
 > since: 1.0.0
 
 Set the coordinates for the Oneko to run to. `x` and `y` are pixel values.

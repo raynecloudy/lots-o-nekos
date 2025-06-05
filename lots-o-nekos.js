@@ -410,7 +410,7 @@ class Oneko extends EventTarget {
   /**
    * Sets the coordinates for the Oneko to run to.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#settargetx-number-y-number-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#settargetx-number-y-number-oneko)
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
    * @since 1.0.0
@@ -418,12 +418,14 @@ class Oneko extends EventTarget {
   setTarget(x, y) {
     this.targetX = x;
     this.targetY = y;
+    
+    return this;
   }
 
   /**
    * Sets the coordinates for the Oneko element to be positioned at.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setpositionx-number-y-number-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setpositionx-number-y-number-oneko)
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
    * @since 2.3.0
@@ -431,12 +433,14 @@ class Oneko extends EventTarget {
   setPosition(x, y) {
     this.x = x;
     this.x = y;
+    
+    return this;
   }
 
   /**
    * Sets the Oneko's target coordinates and element position.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#movetox-number-y-number-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#movetox-number-y-number-oneko)
    * @param {number} x X location, in pixels.
    * @param {number} y Y location, in pixels.
    * @since 2.3.0
@@ -446,23 +450,27 @@ class Oneko extends EventTarget {
     this.targetY = y;
     this.x = x;
     this.x = y;
+    
+    return this;
   }
 
   /**
    * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/). Recently added images may not appear in the selector.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setsourcedbsourcename-onekodatabasesource-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setsourcedbsourcename-onekodatabasesource-oneko)
    * @param {OnekoDatabaseSource} sourceName The name of the image to access from the source database
    * @since 2.1.0
    */
   setSourceDB(sourceName) {
     this.source = `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
+    
+    return this;
   }
 
   /**
    * Runs every frame. Enables Oneko animations.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#onanimationframetimestamp-number-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#onanimationframetimestamp-number-oneko)
    * @param {number} timestamp Duration since last update.
    * @since 2.3.0
    */
@@ -483,12 +491,14 @@ class Oneko extends EventTarget {
     if (this.loopAnimating === true) {
       window.requestAnimationFrame(this.onAnimationFrame);
     }
+    
+    return this;
   }
 
   /**
    * Sets the sprite image to a given frame of a given animation.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-oneko)
    * @param {string} name Name of animation to access. The Y value on the sprite sheet.
    * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
    * @since 2.3.0
@@ -497,23 +507,27 @@ class Oneko extends EventTarget {
     const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
     this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
     this.draw();
+
+    return this;
   }
 
   /**
    * Resets the idle animation.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#resetidleanimation-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#resetidleanimation-oneko)
    * @since 2.3.0
    */
   resetIdleAnimation() {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
+    
+    return this;
   }
 
   /**
    * Controls idle animation logic (scratching, sleeping, etc.)
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idle-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idle-oneko)
    * @since 2.3.0
    */
   idle() {
@@ -574,12 +588,14 @@ class Oneko extends EventTarget {
         return;
     }
     this.idleAnimationFrame += 1;
+    
+    return this;
   }
 
   /**
    * Controls all animation logic.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#frame-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#frame-oneko)
    * @since 2.3.0
    */
   frame() {
@@ -628,12 +644,14 @@ class Oneko extends EventTarget {
     this.y = Math.min(Math.max(16, this.y), window.innerHeight - 16);
 
     this.draw();
+    
+    return this;
   }
 
   /**
    * Updates the Oneko element's position and image. Fires the `draw` event after completion.
    * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-void)
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-oneko)
    * @since 2.3.0
    */
   draw() {
@@ -642,6 +660,8 @@ class Oneko extends EventTarget {
     this.element.style.backgroundImage = `url(${this.source})`;
 
     this.dispatchEvent(this.events.draw);
+    
+    return this;
   }
 
   /**
@@ -660,6 +680,8 @@ class Oneko extends EventTarget {
    */
   _draw() {
     this.draw();
+    
+    return this;
   }
   /**
    * Will be removed in 2.5.0. Use `frame()` instead.
@@ -667,6 +689,8 @@ class Oneko extends EventTarget {
    */
   _frame() {
     this.frame();
+    
+    return this;
   }
   /**
    * Will be removed in 2.5.0. Use `onAnimationFrame()` instead.
@@ -674,6 +698,8 @@ class Oneko extends EventTarget {
    */
   _onAnimationFrame() {
     this.onAnimationFrame();
+    
+    return this;
   }
   /**
    * Will be removed in 2.5.0. Use `resetIdleAnimation()` instead.
@@ -681,6 +707,8 @@ class Oneko extends EventTarget {
    */
   _resetIdleAnimation() {
     this.resetIdleAnimation();
+    
+    return this;
   }
   /**
    * Will be removed in 2.5.0. Use `idle()` instead.
@@ -688,6 +716,8 @@ class Oneko extends EventTarget {
    */
   _idle() {
     this.idle();
+    
+    return this;
   }
 }
 
