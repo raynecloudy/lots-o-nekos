@@ -60,6 +60,12 @@ How long the Oneko has been idle for. Measured by how many times the Oneko's `el
 
 Default value: `0`
 
+#### `initialized: boolean`
+> readonly
+> since: 2.3.0
+
+Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
+
 #### `lastFrameTimestamp: number`
 > read-only
 > since: 2.3.0

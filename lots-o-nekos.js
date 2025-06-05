@@ -142,6 +142,16 @@ class Oneko extends EventTarget {
   idleAnimationFrame;
 
   /**
+   * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
+   * 
+   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#initialized-boolean)
+   * @readonly
+   * @type {boolean}
+   * @since 2.3.0
+   */
+  initialized = false;
+
+  /**
    * The timestamp of the last time the Oneko's `element` was updated.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#lastframetimestamp-number)
@@ -407,6 +417,8 @@ class Oneko extends EventTarget {
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
+
+    this.initialized = true;
   }
 
   /**
