@@ -61,11 +61,10 @@ How long the Oneko has been idle for. Measured by how many times the Oneko's `el
 Default value: `0`
 
 #### `lastFrameTimestamp: number`
+> read-only
 > since: 2.3.0
 
 The timestamp of the last time the Oneko's `element` was updated.
-
-Default value: `0`
 
 #### `loopAnimating: boolean`
 > since: 2.2.0
@@ -297,7 +296,6 @@ type OnekoOptions = {
   idleAnimation?: OnekoIdleAnimation,
   idleAnimationFrame?: number,
   idleTime?: number,
-  lastFrameTimestamp?: number,
   loopAnimating?: boolean,
   skipAlertAnimation?: boolean,
   skipElementInit?: boolean, // Determines if the Oneko's element has automatic styling applied to it.

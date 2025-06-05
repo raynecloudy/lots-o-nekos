@@ -8,7 +8,7 @@
 /**
  * @typedef {"ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine"} OnekoDatabaseSource
  * @typedef {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null} OnekoIdleAnimation
- * @typedef {{element?: HTMLDivElement | null, x?: number, y?: number, speed?: number, source?: string, updateSpeed?: number, loopAnimating?: boolean, skipAlertAnimation?: boolean, targetX?: number, targetY?: number, frameCount?: number, idleTime?: number, idleAnimation?: OnekoIdleAnimation, idleAnimationFrame?: number, lastFrameTimestamp?: number, skipElementInit?: boolean}} OnekoOptions
+ * @typedef {{element?: HTMLDivElement | null, x?: number, y?: number, speed?: number, source?: string, updateSpeed?: number, loopAnimating?: boolean, skipAlertAnimation?: boolean, targetX?: number, targetY?: number, frameCount?: number, idleTime?: number, idleAnimation?: OnekoIdleAnimation, idleAnimationFrame?: number, skipElementInit?: boolean}} OnekoOptions
  */
 
 /**
