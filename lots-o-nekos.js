@@ -695,45 +695,35 @@ class Oneko extends EventTarget {
    * @deprecated
    */
   _draw() {
-    this.draw();
-    
-    return this;
+    return this.draw();
   }
   /**
    * Will be removed in 2.5.0. Use `frame()` instead.
    * @deprecated
    */
   _frame() {
-    this.frame();
-    
-    return this;
+    return this.frame();
   }
   /**
    * Will be removed in 2.5.0. Use `onAnimationFrame()` instead.
    * @deprecated
    */
   _onAnimationFrame() {
-    this.onAnimationFrame();
-    
-    return this;
+    return this.onAnimationFrame();
   }
   /**
    * Will be removed in 2.5.0. Use `resetIdleAnimation()` instead.
    * @deprecated
    */
   _resetIdleAnimation() {
-    this.resetIdleAnimation();
-    
-    return this;
+    return this.resetIdleAnimation();
   }
   /**
    * Will be removed in 2.5.0. Use `idle()` instead.
    * @deprecated
    */
   _idle() {
-    this.idle();
-    
-    return this;
+    return this.idle();
   }
 }
 
