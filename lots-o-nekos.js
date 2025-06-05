@@ -680,8 +680,8 @@ class Oneko extends EventTarget {
 
   /**
    * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
-   * @deprecated
    * @readonly
+   * @deprecated
    */
   _lastFrameTimestamp;
   /**
