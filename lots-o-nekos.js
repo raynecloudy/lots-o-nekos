@@ -491,7 +491,7 @@ class Oneko extends EventTarget {
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
     if (!this.element.isConnected) {
-      return;
+      return this;
     }
     if (!this.lastFrameTimestamp) {
       this.lastFrameTimestamp = timestamp;
@@ -599,7 +599,7 @@ class Oneko extends EventTarget {
         break;
       default:
         this.setSprite("idle", 0);
-        return;
+        return this;
     }
     this.idleAnimationFrame += 1;
     
@@ -620,7 +620,7 @@ class Oneko extends EventTarget {
 
     if (distance < this.speed || distance < 48) {
       this.idle();
-      return;
+      return this;
     }
 
     this.idleAnimation = null;
@@ -635,7 +635,7 @@ class Oneko extends EventTarget {
         if (this.idleTime === 1) {
           this.dispatchEvent(this.events.startRunning);
         }
-        return;
+        return this;
       }
     } else {
       if (this.idleTime > 1) {
