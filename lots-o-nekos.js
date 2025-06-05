@@ -472,7 +472,7 @@ class Oneko extends EventTarget {
    * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/). Recently added images may not appear in the selector.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setsourcedbsourcename-onekodatabasesource-oneko)
-   * @param {OnekoDatabaseSource} sourceName The name of the image to access from the source database
+   * @param {OnekoDatabaseSource | (string & {})} sourceName The name of the image to access from the source database
    * @since 2.1.0
    */
   setSourceDB(sourceName) {
