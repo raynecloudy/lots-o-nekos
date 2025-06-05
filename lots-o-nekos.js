@@ -9,6 +9,7 @@
  * @typedef {"ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine"} OnekoDatabaseSource
  * @typedef {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null} OnekoIdleAnimation
  * @typedef {{element?: HTMLDivElement | null, x?: number, y?: number, speed?: number, source?: string, updateSpeed?: number, loopAnimating?: boolean, skipAlertAnimation?: boolean, targetX?: number, targetY?: number, frameCount?: number, idleTime?: number, idleAnimation?: OnekoIdleAnimation, idleAnimationFrame?: number, skipElementInit?: boolean}} OnekoOptions
+ * @typedef {keyof typeof Oneko.prototype.spriteSets} OnekoSpriteSetOption
  */
 
 /**
@@ -513,7 +514,7 @@ class Oneko extends EventTarget {
    * Sets the sprite image to a given frame of a given animation.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-oneko)
-   * @param {string} name Name of animation to access. The Y value on the sprite sheet.
+   * @param {OnekoSpriteSetOption} name Name of animation to access. The Y value on the sprite sheet.
    * @param {number} frame Frame of animation to access. The X value on the sprite sheet.
    * @since 2.3.0
    */
