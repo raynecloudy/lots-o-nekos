@@ -449,11 +449,9 @@ class Oneko extends EventTarget {
   }
 
   /**
-   * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/).
+   * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/). Recently added images may not appear in the selector.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setsourcedbsourcename-onekodatabasesource-void)
-   * 
-   * Recently added images may not appear in the selector.
    * @param {OnekoDatabaseSource} sourceName The name of the image to access from the source database
    * @since 2.1.0
    */
@@ -633,7 +631,7 @@ class Oneko extends EventTarget {
   }
 
   /**
-   * Renders the Oneko using its `element`. Fires the `draw` event after completion.
+   * Updates the Oneko element's position and image. Fires the `draw` event after completion.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-void)
    * @since 2.3.0

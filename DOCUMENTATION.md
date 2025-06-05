@@ -206,7 +206,7 @@ Default value: `16`
 #### `draw(): void`
 > since: 2.3.0
 
-Renders the Oneko using its `element`. Fires the `draw` event after completion.
+Updates the Oneko element's position and image. Fires the `draw` event after completion.
 
 #### `frame(): void`
 > since: 2.3.0
