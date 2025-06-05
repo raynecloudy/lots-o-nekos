@@ -145,6 +145,7 @@ class Oneko extends EventTarget {
    * The timestamp of the last time the Oneko's `element` was updated.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#lastframetimestamp-number)
+   * @readonly
    * @type {number}
    * @since 1.0.0
    */
@@ -154,6 +155,7 @@ class Oneko extends EventTarget {
    * A keyed list of Events fired by the Oneko object.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#events)
+   * @readonly
    * @since 1.1.0
    */
   events = {
@@ -398,8 +400,8 @@ class Oneko extends EventTarget {
     this.idleTime = options.idleTime ?? 0;
     this.idleAnimation = options.idleAnimation ?? null;
     this.idleAnimationFrame = options.idleAnimationFrame ?? 0;
-    this.lastFrameTimestamp = options.lastFrameTimestamp ?? 0;
-    this._lastFrameTimestamp = options.lastFrameTimestamp ?? 0;
+    this.lastFrameTimestamp = 0;
+    this._lastFrameTimestamp = options.lastFrameTimestamp;
     
     this.draw();
 
@@ -667,10 +669,12 @@ class Oneko extends EventTarget {
   /**
    * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
    * @deprecated
+   * @readonly
    */
   _lastFrameTimestamp;
   /**
    * Will be removed in 2.5.0. Use `events` instead.
+   * @readonly
    * @deprecated
    */
   _events = events
