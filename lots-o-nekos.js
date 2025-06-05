@@ -514,12 +514,12 @@ class Oneko extends EventTarget {
    * Sets the sprite image to a given frame of a given animation.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-oneko)
-   * @param {OnekoSpriteSetOption} name Name of animation to access.
+   * @param {OnekoSpriteSetOption} setName Name of animation to access.
    * @param {number} frame Frame of animation to access.
    * @since 2.3.0
    */
-  setSprite(name, frame) {
-    const sprite = this.spriteSets[name][frame % this.spriteSets[name].length];
+  setSprite(setName, frame) {
+    const sprite = this.spriteSets[setName][frame % this.spriteSets[setName].length];
     this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
     this.draw();
 

@@ -314,3 +314,11 @@ type OnekoOptions = {
   y?: number
 };
 ```
+
+## `OnekoSpriteSetOptions` type (private)
+> since: 2.4.0
+
+Used as `Oneko.prototype.setSprite`'s `setName` argument's type.
+```ts
+type OnekoSpriteSetOptions = keyof typeof Oneko.prototype.spriteSets;
+```
