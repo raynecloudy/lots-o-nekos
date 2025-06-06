@@ -17,6 +17,13 @@
  */
 class Oneko extends EventTarget {
   /**
+   * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
+   * @readonly
+   * @deprecated
+   */
+  _lastFrameTimestamp;
+
+  /**
    * Controls if onAnimationFrame() loops after each completion of itself.
    * 
    * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#loopanimating-boolean)
@@ -679,12 +686,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
-   * @readonly
-   * @deprecated
-   */
-  _lastFrameTimestamp;
   /**
    * Will be removed in 2.5.0. Use `events` instead.
    * @readonly
