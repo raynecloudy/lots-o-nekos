@@ -20,7 +20,7 @@ declare module "lots-o-nekos" {
     skipElementInit?: boolean
   };
 
-  declare class Oneko extends EventTarget {
+  export default class Oneko extends EventTarget {
     loopAnimating: boolean;
     skipAlertAnimation: boolean;
     x: number;
@@ -61,7 +61,7 @@ declare module "lots-o-nekos" {
       W: number[][],
       NW: number[][]
     };
-    constructor(options?: OnekoOptions): Oneko;
+    constructor(options?: OnekoOptions);
     setTarget(x: number, y: number): Oneko;
     setPosition(x: number, y: number): Oneko;
     moveTo(x: number, y: number): Oneko;
