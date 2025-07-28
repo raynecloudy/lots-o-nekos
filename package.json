@@ -1,6 +1,6 @@
 {
   "name": "lots-o-nekos",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "cat follow mouse real! now an npm package with additionyal features for an elevated oneko experience ≽^•⩊•^≼",
   "homepage": "https://github.com/raynecloudy/lots-o-nekos#readme",
   "bugs": {
@@ -12,8 +12,9 @@
   },
   "license": "MIT",
   "author": "raynec",
-  "type": "commonjs",
+  "type": "module",
   "main": "lots-o-nekos.js",
+  "types": "lots-o-nekos.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

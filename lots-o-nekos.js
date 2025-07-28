@@ -6,23 +6,9 @@
 
 
 /**
- * @typedef {"ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine"} OnekoDatabaseSource
- * @typedef {"sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null} OnekoIdleAnimation
- * @typedef {{element?: HTMLDivElement | null, x?: number, y?: number, speed?: number, source?: string, updateSpeed?: number, loopAnimating?: boolean, skipAlertAnimation?: boolean, targetX?: number, targetY?: number, frameCount?: number, idleTime?: number, idleAnimation?: OnekoIdleAnimation, idleAnimationFrame?: number, skipElementInit?: boolean}} OnekoOptions
- * @typedef {keyof typeof Oneko.prototype.spriteSets} OnekoSpriteSetOption
- */
-
-/**
  * An Oneko.
  */
 class Oneko extends EventTarget {
-  /**
-   * Will be removed in 2.5.0. Use `lastFrameTimestamp` instead.
-   * @readonly
-   * @deprecated
-   */
-  _lastFrameTimestamp;
-
   /**
    * Controls if onAnimationFrame() loops after each completion of itself.
    * 
@@ -419,7 +405,6 @@ class Oneko extends EventTarget {
     this.idleAnimation = options.idleAnimation ?? null;
     this.idleAnimationFrame = options.idleAnimationFrame ?? 0;
     this.lastFrameTimestamp = 0;
-    this._lastFrameTimestamp = options.lastFrameTimestamp;
     
     this.draw();
 
@@ -503,11 +488,9 @@ class Oneko extends EventTarget {
     }
     if (!this.lastFrameTimestamp) {
       this.lastFrameTimestamp = timestamp;
-      this._lastFrameTimestamp = timestamp;
     }
     if (timestamp - this.lastFrameTimestamp > this.updateSpeed) {
       this.lastFrameTimestamp = timestamp;
-      this._lastFrameTimestamp = timestamp;
       this.frame();
     }
     if (this.loopAnimating === true) {
@@ -684,49 +667,6 @@ class Oneko extends EventTarget {
     this.dispatchEvent(this.events.draw);
     
     return this;
-  }
-
-  /**
-   * Will be removed in 2.5.0. Use `events` instead.
-   * @readonly
-   * @deprecated
-   */
-  _events = this.events
-  /**
-   * Will be removed in 2.5.0. Use `draw()` instead.
-   * @deprecated
-   */
-  _draw() {
-    return this.draw();
-  }
-  /**
-   * Will be removed in 2.5.0. Use `frame()` instead.
-   * @deprecated
-   */
-  _frame() {
-    return this.frame();
-  }
-  /**
-   * Will be removed in 2.5.0. Use `onAnimationFrame()` instead.
-   * @deprecated
-   * @param {number} timestamp Duration since last update
-   */
-  _onAnimationFrame(timestamp) {
-    return this.onAnimationFrame(timestamp);
-  }
-  /**
-   * Will be removed in 2.5.0. Use `resetIdleAnimation()` instead.
-   * @deprecated
-   */
-  _resetIdleAnimation() {
-    return this.resetIdleAnimation();
-  }
-  /**
-   * Will be removed in 2.5.0. Use `idle()` instead.
-   * @deprecated
-   */
-  _idle() {
-    return this.idle();
   }
 }
 
