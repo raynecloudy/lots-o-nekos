@@ -9,359 +9,92 @@
  * An Oneko.
  */
 class Oneko extends EventTarget {
-  /**
-   * Controls if onAnimationFrame() loops after each completion of itself.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#loopanimating-boolean)
-   * @type {boolean}
-   * @since 2.2.0
-   */
   loopAnimating;
-
-  /**
-   * Controls if the alert animation is skipped before running begins.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#skipalertanimation-boolean)
-   * @type {boolean}
-   * @since 2.2.0
-   */
   skipAlertAnimation;
-
-  /**
-   * The Oneko's `element`'s position on the X axis, in pixels.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#x-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   x;
-
-  /**
-   * The Oneko's `element`'s position on the Y axis, in pixels.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#y-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   y;
-
-  /**
-   * How far the Oneko runs per update, in pixels.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#speed-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   speed;
-
-  /**
-   * The path to an image file used to represent the Oneko.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#source-string)
-   * @type {string}
-   * @since 1.0.0
-   */
   source;
-
-  /**
-   * How fast the Oneko updates its animations, in milliseconds.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#updatespeed-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   updateSpeed;
-
-  /**
-   * An HTMLDivElement used to represent the Oneko in the document.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#element-htmldivelement--null)
-   * @type {HTMLDivElement | null}
-   * @since 1.0.0
-   */
   element;
-
-  /**
-   * The X position the Oneko is running towards, in pixels.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targetx-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   targetX;
-
-  /**
-   * The Y position the Oneko is running towards, in pixels.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targety-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   targetY;
-
-  /**
-   * How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#framecount-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   frameCount;
-
-  /**
-   * How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idletime-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   idleTime;
-
-  /**
-   * The idle animation that's currently playing. `null` means the regular idle animation of being played.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimation-onekoidleanimation)
-   * @type {OnekoIdleAnimation}
-   * @since 1.0.0
-   */
   idleAnimation;
-
-  /**
-   * The current frame of the playing idle animation.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimationframe-number)
-   * @type {number}
-   * @since 1.0.0
-   */
   idleAnimationFrame;
-
-  /**
-   * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#initialized-boolean)
-   * @readonly
-   * @type {boolean}
-   * @since 2.3.0
-   */
   initialized = false;
-
-  /**
-   * The timestamp of the last time the Oneko's `element` was updated.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#lastframetimestamp-number)
-   * @readonly
-   * @type {number}
-   * @since 1.0.0
-   */
   lastFrameTimestamp;
 
-  /**
-   * A keyed list of Events fired by the Oneko object.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#events)
-   * @readonly
-   * @since 1.1.0
-   */
   events = {
-    /**
-     * Fired after the draw() method is finished.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
-     * @since 1.1.0
-     */
     "draw": new Event("draw"),
-    /**
-     * Fired after target coordinate becomes outside range, after alert animation plays.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
-     * @since 2.0.0
-     */
     "startRunning": new Event("startRunning"),
-    /**
-     * Fired after target coordinate becomes inside range.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
-     * @since 2.0.0
-     */
     "stopRunning": new Event("stopRunning")
   };
 
-  /**
-   * A keyed list of arrays of points ([number, number]), defined as animations.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#spritesets)
-   * 
-   * ![image](https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png)
-   * @since 1.0.0
-   */
   spriteSets = {
-    /**
-     * The Oneko is standing still.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/idle.png)
-     * @since 1.0.0
-     */
     idle: [[-3, -3]],
-    /**
-     * Shown before the Oneko starts running to the target coordinate.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/alert.png)
-     * @since 1.0.0
-     */
     alert: [[-7, -3]],
-    /**
-     * Alternative idle animation - the Oneko scratches its ears.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchSelf.png)
-     * @since 1.0.0
-     */
     scratchSelf: [
       [-5, 0],
       [-6, 0],
       [-7, 0],
     ],
-    /**
-     * Alternative idle animation - the Oneko scratches the top of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the top of the viewport.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallN.png)
-     * @since 1.0.0
-     */
     scratchWallN: [
       [0, 0],
       [0, -1],
     ],
-    /**
-     * Alternative idle animation - the Oneko scratches the bottom of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the bottom of the viewport.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallS.png)
-     * @since 1.0.0
-     */
     scratchWallS: [
       [-7, -1],
       [-6, -2],
     ],
-    /**
-     * Alternative idle animation - the Oneko scratches the right side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the right side of the viewport.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallE.png)
-     * @since 1.0.0
-     */
     scratchWallE: [
       [-2, -2],
       [-2, -3],
     ],
-    /**
-     * Alternative idle animation - the Oneko scratches the left side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the left side of the viewport.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallW.png)
-     * @since 1.0.0
-     */
     scratchWallW: [
       [-4, 0],
       [-4, -1],
     ],
-    /**
-     * Alternative idle animation - the Oneko is getting ready to sleep.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/tired.png)
-     * @since 1.0.0
-     */
     tired: [[-3, -2]],
-    /**
-     * Alternative idle animation - the Oneko is sleeping.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/sleeping.png)
-     * @since 1.0.0
-     */
     sleeping: [
       [-2, 0],
       [-2, -1],
     ],
-    /**
-     * The Oneko is running up.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/N.png)
-     * @since 1.0.0
-     */
     N: [
       [-1, -2],
       [-1, -3],
     ],
-    /**
-     * The Oneko is running up and to the right.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/NE.png)
-     * @since 1.0.0
-     */
     NE: [
       [0, -2],
       [0, -3],
     ],
-    /**
-     * The Oneko is running right.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/E.png)
-     * @since 1.0.0
-     */
     E: [
       [-3, 0],
       [-3, -1],
     ],
-    /**
-     * The Oneko is running down and to the right.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/SE.png)
-     * @since 1.0.0
-     */
     SE: [
       [-5, -1],
       [-5, -2],
     ],
-    /**
-     * The Oneko is running down.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/S.png)
-     * @since 1.0.0
-     */
     S: [
       [-6, -3],
       [-7, -2],
     ],
-    /**
-     * The Oneko is running down and to the left.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/SW.png)
-     * @since 1.0.0
-     */
     SW: [
       [-5, -3],
       [-6, -1],
     ],
-    /**
-     * The Oneko is running left.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/W.png)
-     * @since 1.0.0
-     */
     W: [
       [-4, -2],
       [-4, -3],
     ],
-    /**
-     * The Oneko is running up and to the left.
-     * 
-     * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/NW.png)
-     * @since 1.0.0
-     */
     NW: [
       [-1, 0],
       [-1, -1],
     ],
   };
 
-  /**
-   * @param {OnekoOptions} [options] Options for the Oneko.
-   */
   constructor(options) {
     super();
 
@@ -444,14 +177,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Sets the Oneko's target coordinates and element position.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#movetox-number-y-number-oneko)
-   * @param {number} x X location, in pixels.
-   * @param {number} y Y location, in pixels.
-   * @since 2.3.0
-   */
   moveTo(x, y) {
     this.targetX = x;
     this.targetY = y;
@@ -461,26 +186,12 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Sets the source image of the Oneko element to a URL accessing the source database of Oneko PNGs (https://github.com/raynecloudy/oneko_db/). Recently added images may not appear in the selector.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setsourcedbsourcename-onekodatabasesource-oneko)
-   * @param {OnekoDatabaseSource | (string & {})} sourceName The name of the image to access from the source database
-   * @since 2.1.0
-   */
   setSourceDB(sourceName) {
     this.source = `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
     
     return this;
   }
 
-  /**
-   * Runs every frame. Enables Oneko animations.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#onanimationframetimestamp-number-oneko)
-   * @param {number} timestamp Duration since last update.
-   * @since 2.3.0
-   */
   onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
     if (!this.element.isConnected) {
@@ -500,14 +211,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Sets the sprite image to a given frame of a given animation.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-oneko)
-   * @param {OnekoSpriteSetOption} setName Name of animation to access.
-   * @param {number} frame Frame of animation to access.
-   * @since 2.3.0
-   */
   setSprite(setName, frame) {
     const sprite = this.spriteSets[setName][frame % this.spriteSets[setName].length];
     this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
@@ -516,12 +219,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Resets the idle animation.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#resetidleanimation-oneko)
-   * @since 2.3.0
-   */
   resetIdleAnimation() {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
@@ -529,12 +226,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Controls idle animation logic (scratching, sleeping, etc.)
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idle-oneko)
-   * @since 2.3.0
-   */
   idle() {
     if (this.idleTime === 1) {
       this.dispatchEvent(this.events.stopRunning);
@@ -597,12 +288,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Controls all animation logic.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#frame-oneko)
-   * @since 2.3.0
-   */
   frame() {
     this.frameCount += 1;
     const diffX = this.x - this.targetX;
@@ -653,12 +338,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Updates the Oneko element's position and image. Fires the `draw` event after completion.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-oneko)
-   * @since 2.3.0
-   */
   draw() {
     this.element.style.left = `${this.x - 16}px`;
     this.element.style.top = `${this.y - 16}px`;
@@ -668,6 +347,10 @@ class Oneko extends EventTarget {
     
     return this;
   }
+
+  isInitialized() {
+    return this.initialized;
+  }
 }
 
-export default Oneko;
+export { Oneko };
