@@ -287,7 +287,7 @@ type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "e
 
 Used as `Oneko.prototype.idleAnimation`'s type.
 ```ts
-type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS" | null;
+type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
 ```
 
 ## `OnekoOptions` type (private)
