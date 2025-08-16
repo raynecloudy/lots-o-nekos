@@ -419,7 +419,7 @@ declare module "lots-o-nekos" {
      * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#isinitialized-boolean)
-     * @since 2.3.0
+     * @since 3.0.0
      */
     isInitialized(): this is InitializedOneko;
   }
