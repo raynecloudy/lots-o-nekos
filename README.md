@@ -19,9 +19,9 @@ There are two possible methods of installation.
 npm install lots-o-nekos
 ```
 ```ts
-import Oneko from "lots-o-nekos";
+import { Oneko } from "lots-o-nekos";
 
-const oneko = new Oneko({});
+const oneko = new Oneko();
 ```
 
 ## From GitHub
