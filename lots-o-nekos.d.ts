@@ -445,4 +445,3 @@ declare module "lots-o-nekos" {
     private constructor();
   }
 }
-
