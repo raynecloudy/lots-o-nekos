@@ -20,6 +20,21 @@ declare module "lots-o-nekos" {
   };
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
 
+  /**
+   * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
+   * 
+   * If the type checker can verify that the Oneko was initialized (this can be done with methods like `force()` or `isInitialized()`), it will become an `InitializedOneko`. However, because it is currently unknown whether the Oneko is initialized or not, all attributes are possibly `undefined`.
+   * 
+   * ```ts
+   * let cat = new Oneko();
+   * 
+   * window.addEventListener("mousemove", (event) => {
+   *   cat.setTarget(event.clientX, event.clientY);
+   * });
+   * ```
+   * 
+   * @since 1.0.0
+   */
   export class Oneko extends EventTarget {
     /**
      * Controls if onAnimationFrame() loops after each completion of itself.
@@ -435,6 +450,16 @@ declare module "lots-o-nekos" {
     /**
      * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
      * 
+     * ```ts
+     * let cat = new Oneko();
+     * 
+     * if (cat.isInitialized()) {
+     *   // `cat` was initialized
+     * } else {
+     *   // `cat` was not initialized
+     * }
+     * ```
+     * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#isinitialized-boolean)
      * @since 3.0.0
      */
@@ -447,15 +472,34 @@ declare module "lots-o-nekos" {
      */
     static canInitialize(): boolean;
     /**
-     * Forces an initialized Oneko object.
+     * Forces an initialized Oneko object. This is intended to be used in variable declaration, like shown below.
+     * 
+     * ```ts
+     * let cat = new Oneko().force();
+     * ```
+     * 
+     * Due to the possiblity of throwing an error, it is not recommended to use this in production without a try/catch block. Consider using `isInitialized()` instead.
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#force-oneko)
      * @since 3.0.0
-     * @throws {Error} If Oneko class cannot be initialized.
+     * @throws {Error} If the Oneko cannot be initialized.
      */
     force(): InitializedOneko;
   }
 
+  /**
+   * An Oneko that the constructor method successfully initialized using the provided parameters. 
+   * 
+   * ```ts
+   * let cat = new Oneko();
+   * 
+   * if (cat.isInitialized()) {
+   *   // `cat` is of type InitializedOneko
+   * }
+   * ```
+   * 
+   * @since 3.0.0
+   */
   class InitializedOneko extends Oneko {
     loopAnimating: boolean;
     skipAlertAnimation: boolean;
