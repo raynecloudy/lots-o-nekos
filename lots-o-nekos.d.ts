@@ -444,6 +444,7 @@ declare module "lots-o-nekos" {
     /**
      * Forces an initialized Oneko object.
      * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#force-oneko)
      * @since 3.0.0
      * @throws {Error} If Oneko class cannot be initialized.
      */
