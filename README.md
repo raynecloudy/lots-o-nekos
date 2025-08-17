@@ -16,7 +16,7 @@ Install the package using this command:
 ```sh
 npm i lots-o-nekos
 ```
-This will install the package and make it available for use!
+You can now create your custom Oneko friend!! yay!!!
 ```ts
 import { Oneko } from "lots-o-nekos";
 
