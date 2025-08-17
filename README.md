@@ -1,6 +1,8 @@
 <div align="center">
   <img width="600" alt="lots-o-nekos" src="https://raynec.dev/lots-o-nekos.png">
 
+  ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fraynecloudy%2Flots-o-nekos%2Fraw%2Fmaster%2Fpackage.json&query=version&label=version&color=green) [![Discord server invite](https://dcbadge.limes.pink/api/server/https://discord.gg/mD6metDHNE?style=flat)](https://discord.raynec.dev)
+
   An npm package building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script!
 </div>
 
