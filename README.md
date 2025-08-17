@@ -1,37 +1,28 @@
 <div align="center">
-  <img src="https://raynecloudy.nekoweb.org/media/lots-o-nekos.png" alt="lots-o-nekos">
-  
-  A JavaScript library building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script! featuring speed configuration, coordinate control, and other fun stuff!
+  <img width="600" alt="lots-o-nekos" src="https://raynec.dev/lots-o-nekos.png">
+
+  An npm package building off of the popular [oneko.js](https://github.com/adryd325/oneko.js/) script!
 </div>
 
-# Overview
-Welcome to lots-o-nekos! This project is a JavaScript library building off of [adryd325](https://github.com/adryd325/)'s [oneko.js](https://github.com/adryd325/oneko.js/) script. It features customization capabilities such as speed, graphics, and more!
+Lots-o-nekos is a just-for-fun npm package that gives you access to a constructable `Oneko` class to create custom cats that run around on your website! It features full TypeScript support and extensive JSDocs to help you understand what you're writing.
 
-# Contributing
-This project takes contributions from any and all! New features are always welcome, and there could always be more Oneko graphics to choose from... if you're a pixel artist you should consider creating a custom Oneko graphic for https://github.com/raynecloudy/oneko_db/ :3
+## Contributing
+Contributions are welcome from anybody who knows what they're doing. if you have an idea for a new feature, or a fix for a bug, make a pull request! Let's make this a great package, together :)
 
-# Installation
-There are two possible methods of installation.
+If you're a pixel artist, you could try creating a custom graphic and upload it to the [Oneko Source Database](https://github.com/raynecloudy/oneko_db/)!
 
-## From npm
-1. Install and import the `lots-o-nekos` package:
-```bash
-npm install lots-o-nekos
+## Installation
+Install the package using this command:
+```sh
+npm i lots-o-nekos
 ```
+This will install the package and make it available for use!
 ```ts
 import { Oneko } from "lots-o-nekos";
 
-const oneko = new Oneko();
+let cat = new Oneko();
 ```
-
-## From GitHub
-1. Download `lots-o-nekos.js` and place the file in your website's home directory.
-2. Paste this code in the `body` tag of all HTML files:
-```html
-<script src="/lots-o-nekos.js"></script>
-```
-3. In a separate script, write some code with the library!
 
 <div align="center">
-  <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="oneko running">
+  <img src="https://raynecloudy.nekoweb.org/media/bar-cat.gif" alt="Oneko running">
 </div>
