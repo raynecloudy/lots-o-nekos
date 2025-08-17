@@ -376,6 +376,7 @@ declare module "lots-o-nekos" {
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#onanimationframetimestamp-number-oneko)
      * @since 2.3.0
+     * @throws {TypeError} If the Oneko is not initialized.
      */
     onAnimationFrame(
       /**
@@ -388,6 +389,7 @@ declare module "lots-o-nekos" {
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setspritename-string-frame-number-oneko)
      * @since 2.3.0
+     * @throws {TypeError} If the Oneko is not initialized.
      */
     setSprite(
       /**
@@ -411,6 +413,7 @@ declare module "lots-o-nekos" {
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idle-oneko)
      * @since 2.3.0
+     * @throws {TypeError} If the Oneko is not initialized.
      */
     idle(): typeof this;
     /**
@@ -418,6 +421,7 @@ declare module "lots-o-nekos" {
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#frame-oneko)
      * @since 2.3.0
+     * @throws {TypeError} If the Oneko is not initialized.
      */
     frame(): typeof this;
     /**
@@ -425,6 +429,7 @@ declare module "lots-o-nekos" {
      * 
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw-oneko)
      * @since 2.3.0
+     * @throws {TypeError} If the Oneko is not initialized.
      */
     draw(): typeof this;
     /**
