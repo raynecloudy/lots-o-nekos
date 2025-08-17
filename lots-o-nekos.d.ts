@@ -1,7 +1,6 @@
 declare module "lots-o-nekos" {
   type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
   type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
-  type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
   type OnekoOptions = {
     element?: HTMLDivElement | null,
     x?: number,
@@ -19,6 +18,7 @@ declare module "lots-o-nekos" {
     idleAnimationFrame?: number,
     skipElementInit?: boolean
   };
+  type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
 
   export class Oneko extends EventTarget {
     /**
@@ -141,7 +141,7 @@ declare module "lots-o-nekos" {
      * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#events)
      * @since 1.1.0
      */
-    readonly events: {
+    private readonly events: {
       /**
        * Fired after the draw() method is finished.
        * 
@@ -357,8 +357,20 @@ declare module "lots-o-nekos" {
       /**
        * The name of the image to access from the source database.
        */
-      sourceName: OnekoDatabaseSource | (string & {})
+      sourceName: OnekoDatabaseSource | "random" | (string & {})
     ): typeof this;
+    /**
+     * Constructs a complete URL path to a file of a given name on the online source database.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#createdatabasesourceurlsourcename-onekodatabasesource-string)
+     * @since 3.0.0
+     */
+    static createDatabaseSourceURL(
+      /**
+       * The name of the image to access from the source database.
+       */
+      sourceName: OnekoDatabaseSource | "random" | (string & {})
+    ): `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${typeof sourceName}.png`;
     /**
      * Runs every frame. Enables Oneko animations.
      * 
@@ -422,6 +434,20 @@ declare module "lots-o-nekos" {
      * @since 3.0.0
      */
     isInitialized(): this is InitializedOneko;
+    /**
+     * Returns `true` if an Oneko can be initialized under current conditions. An example in which this would return `false` is if the `prefers-reduced-motion` media query is set to `reduce`.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#caninitialize-boolean)
+     * @since 3.0.0
+     */
+    static canInitialize(): boolean;
+    /**
+     * Forces an initialized Oneko object.
+     * 
+     * @since 3.0.0
+     * @throws {Error} If Oneko class cannot be initialized.
+     */
+    force(): InitializedOneko;
   }
 
   class InitializedOneko extends Oneko {

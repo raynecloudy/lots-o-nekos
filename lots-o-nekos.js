@@ -32,6 +32,31 @@ class Oneko extends EventTarget {
     "stopRunning": new Event("stopRunning")
   };
 
+  sourceOptions = [
+    "ace",
+    "black",
+    "bunny",
+    "calico",
+    "default",
+    "eevee",
+    "esmeralda",
+    "fox",
+    "ghost",
+    "gray",
+    "jess",
+    "kina",
+    "lucy",
+    "maia",
+    "maria",
+    "mike",
+    "silver",
+    "silversky",
+    "snuupy",
+    "spirit",
+    "tora",
+    "valentine"
+  ];
+
   spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -98,16 +123,13 @@ class Oneko extends EventTarget {
   constructor(options) {
     super();
 
-    const isReducedMotion =
-    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-    if (isReducedMotion) {
+    if (!Oneko.canInitialize()) {
       console.warn("The prefers-reduced-motion media query is set to reduce. The Oneko will not be initialized.");
       return;
     };
 
     options = options ?? {};
-    
+
     this.x = options.x ?? 16;
     this.y = options.y ?? 16;
     this.speed = options.speed ?? 10;
@@ -115,7 +137,7 @@ class Oneko extends EventTarget {
     this.updateSpeed = options.updateSpeed ?? 100;
     this.loopAnimating = options.loopAnimating ?? true;
     this.skipAlertAnimation = options.skipAlertAnimation ?? false;
-    
+
     this.element = options.element === undefined ? document.createElement("div") : options.element;
 
     if (options.skipElementInit !== true) {
@@ -127,10 +149,10 @@ class Oneko extends EventTarget {
       this.element.style.pointerEvents = "none";
       this.element.style.imageRendering = "pixelated";
       this.element.style.zIndex = 2147483647;
-  
+
       this.element = document.body.appendChild(this.element);
     }
-    
+
     this.targetX = options.targetX ?? this.x;
     this.targetY = options.targetY ?? this.y;
     this.frameCount = options.frameCount ?? 0;
@@ -138,7 +160,7 @@ class Oneko extends EventTarget {
     this.idleAnimation = options.idleAnimation ?? null;
     this.idleAnimationFrame = options.idleAnimationFrame ?? 0;
     this.lastFrameTimestamp = 0;
-    
+
     this.draw();
 
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
@@ -173,7 +195,7 @@ class Oneko extends EventTarget {
   setPosition(x, y) {
     this.x = x;
     this.x = y;
-    
+
     return this;
   }
 
@@ -187,9 +209,21 @@ class Oneko extends EventTarget {
   }
 
   setSourceDB(sourceName) {
-    this.source = `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
-    
+    if (sourceName = "random") {
+      sourceName = this.sourceOptions[Math.floor(Math.random() * this.sourceOptions.length)];
+    }
+    this.source = Oneko.resolveDatabaseURL(sourceName);
+
     return this;
+  }
+
+  static resolveDatabaseURL(sourceName) {
+    if (sourceName = "random") {
+      sourceName = this.sourceOptions[Math.floor(Math.random() * this.sourceOptions.length)];
+    }
+    this.source = Oneko.resolveDatabaseURL(sourceName);
+
+    return `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
   }
 
   onAnimationFrame(timestamp) {
@@ -207,7 +241,7 @@ class Oneko extends EventTarget {
     if (this.loopAnimating === true) {
       window.requestAnimationFrame(this.onAnimationFrame);
     }
-    
+
     return this;
   }
 
@@ -222,7 +256,7 @@ class Oneko extends EventTarget {
   resetIdleAnimation() {
     this.idleAnimation = null;
     this.idleAnimationFrame = 0;
-    
+
     return this;
   }
 
@@ -284,7 +318,7 @@ class Oneko extends EventTarget {
         return this;
     }
     this.idleAnimationFrame += 1;
-    
+
     return this;
   }
 
@@ -334,7 +368,7 @@ class Oneko extends EventTarget {
     this.y = Math.min(Math.max(16, this.y), window.innerHeight - 16);
 
     this.draw();
-    
+
     return this;
   }
 
@@ -344,12 +378,22 @@ class Oneko extends EventTarget {
     this.element.style.backgroundImage = `url(${this.source})`;
 
     this.dispatchEvent(this.events.draw);
-    
+
     return this;
   }
 
   isInitialized() {
     return this.initialized;
+  }
+
+  static canInitialize() {
+    return window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
+  }
+
+  force() {
+    if (!Oneko.canInitialize()) throw new Error("Oneko cannot be initialized");
+
+    return this;
   }
 }
 

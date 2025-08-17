@@ -19,6 +19,7 @@ An HTMLDivElement used to represent the Oneko in the document.
 Default value: `HTMLDivElement`
 
 #### `events`
+> private readonly
 > since: 2.3.0
 
 A keyed list of Events fired by the Oneko object.
@@ -61,7 +62,7 @@ How long the Oneko has been idle for. Measured by how many times the Oneko's `el
 Default value: `0`
 
 #### `lastFrameTimestamp: number`
-> read-only
+> readonly
 > since: 2.3.0
 
 The timestamp of the last time the Oneko's `element` was updated.
@@ -202,10 +203,22 @@ Default value: `16`
 
 ### Methods
 
+#### `canInitialize(): Oneko`
+> static
+> since: 3.0.0
+
+Returns `true` if an Oneko can be initialized under current conditions. An example in which this would return `false` is if the `prefers-reduced-motion` media query is set to `reduce`.
+
 #### `draw(): Oneko`
 > since: 2.3.0
 
 Updates the Oneko element's position and image. Fires the `draw` event after completion.
+
+#### `force(): Oneko`
+> since: 3.0.0
+> throws Error if Oneko cannot be initialized.
+
+Forces an initialized Oneko object.
 
 #### `frame(): Oneko`
 > since: 2.3.0
@@ -236,6 +249,12 @@ Runs every frame. Enables Oneko animations. `timestamp` is the duration since th
 > since: 2.3.0
 
 Resets the idle animation.
+
+#### `createDatabaseSourceURL(sourceName: OnekoDatabaseSource): string`
+> static
+> since: 3.0.0
+
+Constructs a complete URL path to a file of a given name on the online source database.
 
 #### `setPosition(x: number, y: number): Oneko`
 > since: 2.3.0
@@ -274,7 +293,8 @@ Fires when the target coordinate becomes outside range, after alert animation pl
 
 Fires when target coordinate becomes inside range.
 
-## `OnekoDatabaseSource` type (private)
+## `OnekoDatabaseSource` type
+> private
 > since: 2.3.0
 
 Used as `Oneko.prototype.setSourceDB`'s `sourceName` argument's type.
@@ -282,7 +302,8 @@ Used as `Oneko.prototype.setSourceDB`'s `sourceName` argument's type.
 type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
 ```
 
-## `OnekoIdleAnimation` type (private)
+## `OnekoIdleAnimation` type
+> private
 > since 2.3.0
 
 Used as `Oneko.prototype.idleAnimation`'s type.
@@ -290,7 +311,8 @@ Used as `Oneko.prototype.idleAnimation`'s type.
 type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
 ```
 
-## `OnekoOptions` type (private)
+## `OnekoOptions` type
+> private
 > since: 2.3.0
 
 Used as the `Oneko` class constructor's `options` argument's type.
@@ -314,7 +336,8 @@ type OnekoOptions = {
 };
 ```
 
-## `OnekoSpriteSetOptions` type (private)
+## `OnekoSpriteSetOptions` type
+> private
 > since: 2.4.0
 
 Used as `Oneko.prototype.setSprite`'s `setName` argument's type.
