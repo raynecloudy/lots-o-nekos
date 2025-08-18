@@ -1,10 +1,6 @@
 // Original oneko.js: https://github.com/adryd325/oneko.js/
 // Modified edition: https://github.com/raynecloudy/lots-o-nekos/
 
-
-// If not using as a module, please remove the export line at the bottom! the script will error and not run if you don't!
-
-
 class Oneko extends EventTarget {
   loopAnimating;
   skipAlertAnimation;
