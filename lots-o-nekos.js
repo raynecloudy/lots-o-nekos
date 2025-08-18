@@ -410,4 +410,4 @@ class Oneko extends EventTarget {
   }
 }
 
-// export { Oneko };
+export { Oneko };
