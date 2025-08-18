@@ -7,6 +7,8 @@ class Oneko extends EventTarget {
   x;
   y;
   speed;
+  size;
+  allowedTargetDistance;
   source;
   updateSpeed;
   element;
@@ -126,6 +128,8 @@ class Oneko extends EventTarget {
     this.x = options.x ?? 16;
     this.y = options.y ?? 16;
     this.speed = options.speed ?? 10;
+    this.size = options.size ?? 32;
+    this.allowedTargetDistance = options.allowedTargetDistance ?? 48;
     this.source = options.source ?? "https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/default.png";
     this.updateSpeed = options.updateSpeed ?? 100;
     this.loopAnimating = options.loopAnimating ?? true;
@@ -136,8 +140,6 @@ class Oneko extends EventTarget {
     if (options.skipElementInit !== true) {
       this.element.className = "oneko";
       this.element.ariaHidden = true;
-      this.element.style.width = "32px";
-      this.element.style.height = "32px";
       this.element.style.position = "fixed";
       this.element.style.pointerEvents = "none";
       this.element.style.imageRendering = "pixelated";
@@ -240,7 +242,7 @@ class Oneko extends EventTarget {
 
   setSprite(setName, frame) {
     const sprite = this.spriteSets[setName][frame % this.spriteSets[setName].length];
-    this.element.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+    this.element.style.backgroundPosition = `${sprite[0] * this.size}px ${sprite[1] * this.size}px`;
     this.draw();
 
     return this;
@@ -267,16 +269,16 @@ class Oneko extends EventTarget {
       this.idleAnimation == null
     ) {
       let avalibleIdleAnimations = ["sleeping", "scratchSelf"];
-      if (this.x < 32) {
+      if (this.x < this.size) {
         avalibleIdleAnimations.push("scratchWallW");
       }
-      if (this.y < 32) {
+      if (this.y < this.size) {
         avalibleIdleAnimations.push("scratchWallN");
       }
-      if (this.x > window.innerWidth - 32) {
+      if (this.x > window.innerWidth - this.size) {
         avalibleIdleAnimations.push("scratchWallE");
       }
-      if (this.y > window.innerHeight - 32) {
+      if (this.y > window.innerHeight - this.size) {
         avalibleIdleAnimations.push("scratchWallS");
       }
       this.idleAnimation =
@@ -321,7 +323,7 @@ class Oneko extends EventTarget {
     const diffY = this.y - this.targetY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    if (distance < this.speed || distance < 48) {
+    if (distance < this.speed || distance < this.allowedTargetDistance) {
       this.idle();
       return this;
     }
@@ -366,9 +368,12 @@ class Oneko extends EventTarget {
   }
 
   draw() {
-    this.element.style.left = `${this.x - 16}px`;
-    this.element.style.top = `${this.y - 16}px`;
+    this.element.style.width = `${this.size}px`;
+    this.element.style.height = `${this.size}px`;
+    this.element.style.left = `${this.x - (this.size / 2)}px`;
+    this.element.style.top = `${this.y - (this.size / 2)}px`;
     this.element.style.backgroundImage = `url(${this.source})`;
+    this.element.style.backgroundSize = `${this.size * 8}px`;
 
     this.dispatchEvent(this.events.draw);
 
@@ -380,7 +385,7 @@ class Oneko extends EventTarget {
   }
 
   static canInitialize() {
-    return window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
+    return !window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
   }
 
   force() {
@@ -390,4 +395,4 @@ class Oneko extends EventTarget {
   }
 }
 
-export { Oneko };
+// export { Oneko };
