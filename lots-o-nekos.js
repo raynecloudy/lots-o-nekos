@@ -268,22 +268,22 @@ class Oneko extends EventTarget {
       Math.floor(Math.random() * 200) == 0 &&
       this.idleAnimation == null
     ) {
-      let avalibleIdleAnimations = ["sleeping", "scratchSelf"];
+      let availableIdleAnimations = ["sleeping", "scratchSelf"];
       if (this.x < this.size) {
-        avalibleIdleAnimations.push("scratchWallW");
+        availableIdleAnimations.push("scratchWallW");
       }
       if (this.y < this.size) {
-        avalibleIdleAnimations.push("scratchWallN");
+        availableIdleAnimations.push("scratchWallN");
       }
       if (this.x > window.innerWidth - this.size) {
-        avalibleIdleAnimations.push("scratchWallE");
+        availableIdleAnimations.push("scratchWallE");
       }
       if (this.y > window.innerHeight - this.size) {
-        avalibleIdleAnimations.push("scratchWallS");
+        availableIdleAnimations.push("scratchWallS");
       }
       this.idleAnimation =
-        avalibleIdleAnimations[
-          Math.floor(Math.random() * avalibleIdleAnimations.length)
+        availableIdleAnimations[
+          Math.floor(Math.random() * availableIdleAnimations.length)
         ];
     }
 
