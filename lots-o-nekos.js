@@ -20,6 +20,7 @@ class Oneko extends EventTarget {
   idleAnimationFrame;
   initialized = false;
   lastFrameTimestamp;
+  allowedIdleAnimations;
 
   events = {
     "draw": new Event("draw"),
@@ -134,6 +135,14 @@ class Oneko extends EventTarget {
     this.updateSpeed = options.updateSpeed ?? 100;
     this.loopAnimating = options.loopAnimating ?? true;
     this.skipAlertAnimation = options.skipAlertAnimation ?? false;
+    this.allowedIdleAnimations = options.allowedIdleAnimations ?? [
+      "sleeping",
+      "scratchSelf",
+      "scratchWallN",
+      "scratchWallE",
+      "scratchWallS",
+      "scratchWallW"
+    ];
 
     this.element = options.element === undefined ? document.createElement("div") : options.element;
 
@@ -268,17 +277,23 @@ class Oneko extends EventTarget {
       Math.floor(Math.random() * 200) == 0 &&
       this.idleAnimation == null
     ) {
-      let availableIdleAnimations = ["sleeping", "scratchSelf"];
-      if (this.x < this.size) {
+      let availableIdleAnimations = [];
+      if (this.allowedIdleAnimations.includes("sleeping")) {
+        availableIdleAnimations.push("sleeping");
+      }
+      if (this.allowedIdleAnimations.includes("scratchSelf")) {
+        availableIdleAnimations.push("scratchSelf");
+      }
+      if (this.x < this.size && this.allowedIdleAnimations.includes("scratchWallW")) {
         availableIdleAnimations.push("scratchWallW");
       }
-      if (this.y < this.size) {
+      if (this.y < this.size && this.allowedIdleAnimations.includes("scratchWallN")) {
         availableIdleAnimations.push("scratchWallN");
       }
-      if (this.x > window.innerWidth - this.size) {
+      if (this.x > window.innerWidth - this.size && this.allowedIdleAnimations.includes("scratchWallE")) {
         availableIdleAnimations.push("scratchWallE");
       }
-      if (this.y > window.innerHeight - this.size) {
+      if (this.y > window.innerHeight - this.size && this.allowedIdleAnimations.includes("scratchWallS")) {
         availableIdleAnimations.push("scratchWallS");
       }
       this.idleAnimation =
