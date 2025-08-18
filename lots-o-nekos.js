@@ -382,8 +382,8 @@ class Oneko extends EventTarget {
     this.x -= (diffX / distance) * this.speed;
     this.y -= (diffY / distance) * this.speed;
 
-    this.x = Math.min(Math.max(16, this.x), window.innerWidth - 16);
-    this.y = Math.min(Math.max(16, this.y), window.innerHeight - 16);
+    this.x = Math.min(Math.max((this.size / 2), this.x), window.innerWidth - (this.size / 2));
+    this.y = Math.min(Math.max((this.size / 2), this.y), window.innerHeight - (this.size / 2));
 
     this.draw();
 
