@@ -576,6 +576,9 @@ declare module "lots-o-nekos" {
     readonly lastFrameTimestamp: number;
     allowedIdleAnimations: OnekoIdleAnimation[];
     yawnDuration: number;
+    sleepDuration: number;
+    scratchDuration: number;
+    maxAlertDuration: number;
 
     private constructor();
   }
