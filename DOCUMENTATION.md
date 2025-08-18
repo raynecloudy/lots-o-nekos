@@ -98,6 +98,20 @@ Controls if `onAnimationFrame()` loops called after each completion of itself.
 
 Default value: `true`
 
+#### `maxAlertDuration: number`
+> since: 3.0.0
+
+The maximum number of frames the Oneko will spend in the `alert` state before moving towards the target point.
+
+Default value: `7`
+
+#### `scratchDuration: number`
+> since: 3.0.0
+
+The number of frames the Oneko will spend in any scratching animation before the idle animation is reset.
+
+Default value: `9`
+
 #### `size: number`
 > since: 3.0.0
 
@@ -111,6 +125,13 @@ Default value: `32`
 Controls if the alert animation is skipped before running begins.
 
 Default value: `false`
+
+#### `sleepDuration: number`
+> since: 3.0.0
+
+The number of frames the Oneko will spend in the main sleep animation before the idle animation is reset.
+
+Default value: `192`
 
 #### `source: string`
 > since: 1.0.0
@@ -231,6 +252,13 @@ Default value: `16`
 The Oneko's `element`'s position on the Y axis, in pixels.
 
 Default value: `16`
+
+#### `yawnDuration: number`
+> since: 3.0.0
+
+The number of frames the Oneko will spend in the `tired` state before entering the main sleep animation.
+
+Default value: `8`
 
 ### Methods
 

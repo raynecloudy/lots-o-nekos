@@ -19,7 +19,10 @@ declare module "lots-o-nekos" {
     idleAnimation?: OnekoIdleAnimation | null,
     idleAnimationFrame?: number,
     skipElementInit?: boolean,
-    allowedIdleAnimations?: OnekoIdleAnimation[]
+    allowedIdleAnimations?: OnekoIdleAnimation[],
+    yawnDuration: number,
+    sleepDuration: number,
+    maxAlertDuration: number
   };
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
 
@@ -174,6 +177,34 @@ declare module "lots-o-nekos" {
      * @since 3.0.0
      */
     allowedIdleAnimations: OnekoIdleAnimation[] | undefined;
+    /**
+     * The number of frames the Oneko will spend in the `tired` state before entering the main sleep animation.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#yawnduration-number)
+     * @since 3.0.0
+     */
+    yawnDuration: number | undefined;
+    /**
+     * The number of frames the Oneko will spend in the main sleep animation before the idle animation is reset.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#sleepduration-number)
+     * @since 3.0.0
+     */
+    sleepDuration: number | undefined;
+    /**
+     * The number of frames the Oneko will spend in any scratching animation before the idle animation is reset.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#scratchduration-number)
+     * @since 3.0.0
+     */
+    scratchDuration: number | undefined;
+    /**
+     * The maximum number of frames the Oneko will spend in the `alert` state before moving towards the target point.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#maxalertduration-number)
+     * @since 3.0.0
+     */
+    maxAlertDuration: number | undefined;
     /**
      * A keyed list of Events fired by the Oneko object.
      * 
@@ -544,6 +575,7 @@ declare module "lots-o-nekos" {
     protected readonly initialized: true;
     readonly lastFrameTimestamp: number;
     allowedIdleAnimations: OnekoIdleAnimation[];
+    yawnDuration: number;
 
     private constructor();
   }

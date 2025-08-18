@@ -21,6 +21,10 @@ class Oneko extends EventTarget {
   initialized = false;
   lastFrameTimestamp;
   allowedIdleAnimations;
+  yawnDuration;
+  sleepDuration;
+  scratchDuration;
+  maxAlertDuration;
 
   events = {
     "draw": new Event("draw"),
@@ -143,6 +147,10 @@ class Oneko extends EventTarget {
       "scratchWallS",
       "scratchWallW"
     ];
+    this.yawnDuration = options.yawnDuration ?? 8;
+    this.sleepDuration = options.sleepDuration ?? 192;
+    this.scratchDuration = options.scratchDuration ?? 9;
+    this.maxAlertDuration = options.maxAlertDuration ?? 7;
 
     this.element = options.element === undefined ? document.createElement("div") : options.element;
 
@@ -304,12 +312,12 @@ class Oneko extends EventTarget {
 
     switch (this.idleAnimation) {
       case "sleeping":
-        if (this.idleAnimationFrame < 8) {
+        if (this.idleAnimationFrame < this.yawnDuration) {
           this.setSprite("tired", 0);
           break;
         }
         this.setSprite("sleeping", Math.floor(this.idleAnimationFrame / 4));
-        if (this.idleAnimationFrame > 192) {
+        if (this.idleAnimationFrame > this.sleepDuration) {
           this.resetIdleAnimation();
         }
         break;
@@ -319,7 +327,7 @@ class Oneko extends EventTarget {
       case "scratchWallW":
       case "scratchSelf":
         this.setSprite(this.idleAnimation, this.idleAnimationFrame);
-        if (this.idleAnimationFrame > 9) {
+        if (this.idleAnimationFrame > this.scratchDuration) {
           this.resetIdleAnimation();
         }
         break;
@@ -350,7 +358,7 @@ class Oneko extends EventTarget {
       if (this.idleTime > 1) {
         this.setSprite("alert", 0);
         // count down after being alerted before moving
-        this.idleTime = Math.min(this.idleTime, 7);
+        this.idleTime = Math.min(this.idleTime, this.maxAlertDuration);
         this.idleTime -= 1;
         if (this.idleTime === 1) {
           this.dispatchEvent(this.events.startRunning);
