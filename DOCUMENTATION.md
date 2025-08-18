@@ -11,6 +11,30 @@ new Oneko(options: OnekoOptions);
 
 ### Properties
 
+#### `allowedIdleAnimations: OnekoIdleAnimation[]`
+> since: 3.0.0
+
+A list of animations that the Oneko can use when idle.
+
+Default value:
+```ts
+[
+  "scratchSelf",
+  "scratchWallE",
+  "scratchWallN",
+  "scratchWallS",
+  "scratchWallW",
+  "sleeping"
+]
+```
+
+#### `allowedTargetDistance: number`
+> since: 3.0.0
+
+The maximum distance, in pixels, that the Oneko is allowed to be from the target point before it becomes idle.
+
+Default value: `48`
+
 #### `element: HTMLDivElement | null`
 > since: 1.0.0
 
@@ -73,6 +97,13 @@ The timestamp of the last time the Oneko's `element` was updated.
 Controls if `onAnimationFrame()` loops called after each completion of itself.
 
 Default value: `true`
+
+#### `size: number`
+> since: 3.0.0
+
+How big the Oneko is, in pixels.
+
+Default value: `32`
 
 #### `skipAlertAnimation: boolean`
 > since: 2.2.0
@@ -318,12 +349,15 @@ type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratch
 Used as the `Oneko` class constructor's `options` argument's type.
 ```ts
 type OnekoOptions = {
+  allowedIdleAnimations?: OnekoIdleAnimation[],
+  allowedTargetDistance?: number,
   element?: HTMLDivElement | null,
   frameCount?: number,
   idleAnimation?: OnekoIdleAnimation,
   idleAnimationFrame?: number,
   idleTime?: number,
   loopAnimating?: boolean,
+  size?: number,
   skipAlertAnimation?: boolean,
   skipElementInit?: boolean, // Determines if the Oneko's element has automatic styling applied to it.
   source?: number,
@@ -332,7 +366,7 @@ type OnekoOptions = {
   targetY?: number,
   updateSpeed?: number,
   x?: number,
-  y?: number
+  y?: number,
 };
 ```
 

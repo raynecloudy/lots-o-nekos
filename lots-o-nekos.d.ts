@@ -6,6 +6,8 @@ declare module "lots-o-nekos" {
     x?: number,
     y?: number,
     speed?: number,
+    size?: number,
+    allowedTargetDistance?: number,
     source?: string,
     updateSpeed?: number,
     loopAnimating?: boolean,
@@ -16,7 +18,8 @@ declare module "lots-o-nekos" {
     idleTime?: number,
     idleAnimation?: OnekoIdleAnimation | null,
     idleAnimationFrame?: number,
-    skipElementInit?: boolean
+    skipElementInit?: boolean,
+    allowedIdleAnimations?: OnekoIdleAnimation[]
   };
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
 
@@ -71,6 +74,20 @@ declare module "lots-o-nekos" {
      * @since 1.0.0
      */
     speed: number | undefined;
+    /**
+     * How big the Oneko is, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#size-number)
+     * @since 3.0.0
+     */
+    size: number | undefined;
+    /**
+     * The maximum distance, in pixels, that the Oneko is allowed to be from the target point before becomes idle.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedtargetdistance-number)
+     * @since 3.0.0
+     */
+    allowedTargetDistance: number | undefined;
     /**
      * The path to an image file used to represent the Oneko.
      * 
@@ -150,6 +167,13 @@ declare module "lots-o-nekos" {
      * @since 1.0.0
      */
     readonly lastFrameTimestamp: number | null | undefined;
+    /**
+     * A list of animations that the Oneko can use when idle.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedidleanimations-onekoidleanimation)
+     * @since 3.0.0
+     */
+    allowedIdleAnimations: OnekoIdleAnimation[] | undefined;
     /**
      * A keyed list of Events fired by the Oneko object.
      * 
@@ -506,6 +530,8 @@ declare module "lots-o-nekos" {
     x: number;
     y: number;
     speed: number;
+    size: number;
+    allowedTargetDistance: number;
     source: string;
     updateSpeed: number;
     element: HTMLDivElement | null;
@@ -517,6 +543,7 @@ declare module "lots-o-nekos" {
     idleAnimationFrame: number;
     protected readonly initialized: true;
     readonly lastFrameTimestamp: number;
+    allowedIdleAnimations: OnekoIdleAnimation[];
 
     private constructor();
   }
