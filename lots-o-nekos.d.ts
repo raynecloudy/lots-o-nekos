@@ -26,28 +26,28 @@ declare module "lots-o-nekos" {
   };
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
   interface OnekoEventMap {
-      /**
-       * Fired after the draw() method is finished.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
-       * @since 1.1.0
-       */
-      draw: Event,
-      /**
-       * Fired after target coordinate becomes outside range, after alert animation plays.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
-       * @since 2.0.0
-       */
-      startRunning: Event,
-      /**
-       * Fired after target coordinate becomes inside range.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
-       * @since 2.0.0
-       */
-      stopRunning: Event
-    }
+    /**
+     * Fired after the draw() method is finished.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
+     * @since 1.1.0
+     */
+    draw: Event,
+    /**
+     * Fired after target coordinate becomes outside range, after alert animation plays.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
+     * @since 2.0.0
+     */
+    startRunning: Event,
+    /**
+     * Fired after target coordinate becomes inside range.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
+     * @since 2.0.0
+     */
+    stopRunning: Event
+  };
 
   /**
    * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
