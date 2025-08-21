@@ -200,28 +200,28 @@ declare module "lots-o-nekos" {
        */
       scratchSelf: number[][],
       /**
-       * Alternative idle animation - the Oneko scratches the top of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the top of the viewport.
+       * Alternative idle animation - the Oneko scratches the top of the viewport. Can only be seen when the Oneko's `element` is less than `size` pixels away from the top of the viewport.
        * 
        * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallN.png)
        * @since 1.0.0
        */
       scratchWallN: number[][],
       /**
-       * Alternative idle animation - the Oneko scratches the bottom of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the bottom of the viewport.
+       * Alternative idle animation - the Oneko scratches the bottom of the viewport. Can only be seen when the Oneko's `element` is less than `size` pixels away from the bottom of the viewport.
        * 
        * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallS.png)
        * @since 1.0.0
        */
       scratchWallS: number[][],
       /**
-       * Alternative idle animation - the Oneko scratches the right side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the right side of the viewport.
+       * Alternative idle animation - the Oneko scratches the right side of the viewport. Can only be seen when the Oneko's `element` is less than `size` pixels away from the right side of the viewport.
        * 
        * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallE.png)
        * @since 1.0.0
        */
       scratchWallE: number[][],
       /**
-       * Alternative idle animation - the Oneko scratches the left side of the viewport. Can only be seen when the Oneko's `element` is less than 32 pixels away from the left side of the viewport.
+       * Alternative idle animation - the Oneko scratches the left side of the viewport. Can only be seen when the Oneko's `element` is less than `size` pixels away from the left side of the viewport.
        * 
        * ![image](https://raw.githubusercontent.com/raynecloudy/lots-o-nekos/refs/heads/master/media/anim-locations/scratchWallW.png)
        * @since 1.0.0
