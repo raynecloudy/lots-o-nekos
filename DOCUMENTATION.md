@@ -42,21 +42,6 @@ An HTMLDivElement used to represent the Oneko in the document.
 
 Default value: `HTMLDivElement`
 
-#### `events`
-> private readonly
-> since: 2.3.0
-
-A keyed list of Events fired by the Oneko object.
-
-Default value:
-```js
-{
-  "draw": new Event("draw"),
-  "startRunning": new Event("startRunning"),
-  "stopRunning": new Event("stopRunning")
-};
-```
-
 #### `frameCount: number`
 > since: 1.0.0
 

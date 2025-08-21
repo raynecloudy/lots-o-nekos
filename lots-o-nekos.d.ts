@@ -25,6 +25,29 @@ declare module "lots-o-nekos" {
     maxAlertDuration: number
   };
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
+  interface OnekoEventMap {
+      /**
+       * Fired after the draw() method is finished.
+       * 
+       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
+       * @since 1.1.0
+       */
+      draw: Event,
+      /**
+       * Fired after target coordinate becomes outside range, after alert animation plays.
+       * 
+       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
+       * @since 2.0.0
+       */
+      startRunning: Event,
+      /**
+       * Fired after target coordinate becomes inside range.
+       * 
+       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
+       * @since 2.0.0
+       */
+      stopRunning: Event
+    }
 
   /**
    * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
@@ -205,35 +228,6 @@ declare module "lots-o-nekos" {
      * @since 3.0.0
      */
     maxAlertDuration: number | undefined;
-    /**
-     * A keyed list of Events fired by the Oneko object.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#events)
-     * @since 1.1.0
-     */
-    private readonly events: {
-      /**
-       * Fired after the draw() method is finished.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
-       * @since 1.1.0
-       */
-      draw: Event,
-      /**
-       * Fired after target coordinate becomes outside range, after alert animation plays.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
-       * @since 2.0.0
-       */
-      startRunning: Event,
-      /**
-       * Fired after target coordinate becomes inside range.
-       * 
-       * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
-       * @since 2.0.0
-       */
-      stopRunning: Event
-    };
     /**
      * A keyed list of arrays of points ([number, number]), defined as animations.
      * 
@@ -540,6 +534,9 @@ declare module "lots-o-nekos" {
      * @throws {Error} If the Oneko cannot be initialized.
      */
     force(): InitializedOneko;
+
+    addEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | AddEventListenerOptions): void;
+    removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
   }
 
   /**
