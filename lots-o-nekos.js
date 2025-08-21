@@ -284,7 +284,7 @@ class Oneko extends EventTarget {
       this.idleTime > 10 &&
       Math.floor(Math.random() * 200) == 0 &&
       this.idleAnimation == null &&
-      this.availableIdleAnimations.length > 0
+      this.allowedIdleAnimations.length > 0
     ) {
       let availableIdleAnimations = [];
       if (this.allowedIdleAnimations.includes("sleeping")) {
