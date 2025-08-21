@@ -1,54 +1,4 @@
 declare module "lots-o-nekos" {
-  type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
-  type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
-  type OnekoOptions = {
-    element?: HTMLDivElement | null,
-    x?: number,
-    y?: number,
-    speed?: number,
-    size?: number,
-    allowedTargetDistance?: number,
-    source?: string,
-    updateSpeed?: number,
-    loopAnimating?: boolean,
-    skipAlertAnimation?: boolean,
-    targetX?: number,
-    targetY?: number,
-    frameCount?: number,
-    idleTime?: number,
-    idleAnimation?: OnekoIdleAnimation | null,
-    idleAnimationFrame?: number,
-    skipElementInit?: boolean,
-    allowedIdleAnimations?: OnekoIdleAnimation[],
-    yawnDuration: number,
-    sleepDuration: number,
-    maxAlertDuration: number
-  };
-  type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
-  interface OnekoEventMap {
-    /**
-     * Fired after the draw() method is finished.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
-     * @since 1.1.0
-     */
-    draw: Event,
-    /**
-     * Fired after target coordinate becomes outside range, after alert animation plays.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
-     * @since 2.0.0
-     */
-    startRunning: Event,
-    /**
-     * Fired after target coordinate becomes inside range.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
-     * @since 2.0.0
-     */
-    stopRunning: Event
-  }
-
   /**
    * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
    * 
@@ -177,15 +127,6 @@ declare module "lots-o-nekos" {
      * @since 1.0.0
      */
     idleAnimationFrame: number | undefined;
-    /**
-     * **This attribute is now private. Use `isInitialized()` instead.**
-     * 
-     * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#initialized-boolean)
-     * @since 2.3.0
-     */
-    protected readonly initialized: boolean;
     /**
      * The timestamp of the last time the Oneko's `element` was updated.
      * 
@@ -539,6 +480,60 @@ declare module "lots-o-nekos" {
     removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
   }
 
+  type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
+
+  interface OnekoEventMap {
+    /**
+     * Fired after the draw() method is finished.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#draw)
+     * @since 1.1.0
+     */
+    draw: Event,
+    /**
+     * Fired after target coordinate becomes outside range, after alert animation plays.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#startrunning)
+     * @since 2.0.0
+     */
+    startRunning: Event,
+    /**
+     * Fired after target coordinate becomes inside range.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#stoprunning)
+     * @since 2.0.0
+     */
+    stopRunning: Event
+  }
+
+  type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
+
+  type OnekoOptions = {
+    element?: HTMLDivElement | null,
+    x?: number,
+    y?: number,
+    speed?: number,
+    size?: number,
+    allowedTargetDistance?: number,
+    source?: string,
+    updateSpeed?: number,
+    loopAnimating?: boolean,
+    skipAlertAnimation?: boolean,
+    targetX?: number,
+    targetY?: number,
+    frameCount?: number,
+    idleTime?: number,
+    idleAnimation?: OnekoIdleAnimation | null,
+    idleAnimationFrame?: number,
+    skipElementInit?: boolean,
+    allowedIdleAnimations?: OnekoIdleAnimation[],
+    yawnDuration: number,
+    sleepDuration: number,
+    maxAlertDuration: number
+  };
+
+  type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
+
   /**
    * An Oneko that the constructor method successfully initialized using the provided parameters. 
    * 
@@ -569,7 +564,6 @@ declare module "lots-o-nekos" {
     idleTime: number;
     idleAnimation: OnekoIdleAnimation | null;
     idleAnimationFrame: number;
-    protected readonly initialized: true;
     readonly lastFrameTimestamp: number;
     allowedIdleAnimations: OnekoIdleAnimation[];
     yawnDuration: number;
