@@ -527,9 +527,9 @@ declare module "lots-o-nekos" {
     idleAnimationFrame?: number,
     skipElementInit?: boolean,
     allowedIdleAnimations?: OnekoIdleAnimation[],
-    yawnDuration: number,
-    sleepDuration: number,
-    maxAlertDuration: number
+    yawnDuration?: number,
+    sleepDuration?: number,
+    maxAlertDuration?: number
   };
 
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
