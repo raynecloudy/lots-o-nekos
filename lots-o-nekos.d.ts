@@ -47,7 +47,7 @@ declare module "lots-o-nekos" {
      * @since 2.0.0
      */
     stopRunning: Event
-  };
+  }
 
   /**
    * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
