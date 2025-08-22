@@ -39,7 +39,7 @@ declare module "lots-o-nekos" {
     /**
      * The Oneko's `element`'s position on the Y axis, in pixels.
      * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#x-number)
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#y-number)
      * @since 1.0.0
      */
     y: number | undefined;

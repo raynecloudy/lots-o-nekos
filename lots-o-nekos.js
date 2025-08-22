@@ -181,14 +181,6 @@ class Oneko extends EventTarget {
     this.initialized = true;
   }
 
-  /**
-   * Sets the coordinates for the Oneko to run to.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#settargetx-number-y-number-oneko)
-   * @param {number} x X location, in pixels.
-   * @param {number} y Y location, in pixels.
-   * @since 1.0.0
-   */
   setTarget(x, y) {
     this.targetX = x;
     this.targetY = y;
@@ -196,14 +188,6 @@ class Oneko extends EventTarget {
     return this;
   }
 
-  /**
-   * Sets the coordinates for the Oneko element to be positioned at.
-   * 
-   * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#setpositionx-number-y-number-oneko)
-   * @param {number} x X location, in pixels.
-   * @param {number} y Y location, in pixels.
-   * @since 2.3.0
-   */
   setPosition(x, y) {
     this.x = x;
     this.x = y;
