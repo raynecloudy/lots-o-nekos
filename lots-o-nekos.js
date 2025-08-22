@@ -401,6 +401,17 @@ class Oneko extends EventTarget {
 
     return this;
   }
+
+  toJSON() {
+    let properties = Object.getOwnPropertyNames(this);
+    let json = {};
+    for (let p of properties) {
+      if (typeof this[p] !== "function") {
+        json[p] = this[p];
+      }
+    }
+    return json;
+  }
 }
 
 export { Oneko };

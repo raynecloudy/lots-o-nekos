@@ -475,6 +475,12 @@ declare module "lots-o-nekos" {
      * @throws {Error} If the Oneko cannot be initialized.
      */
     force(): InitializedOneko;
+    /**
+     * Takes the attributes of the class and compiles them into a JSON-compatible object.
+     * 
+     * @since 3.0.0
+     */
+    toJSON(): Pick<typeof this, { [K in keyof typeof this]: typeof this[K] extends Function ? never : K }[keyof typeof this]>;
 
     addEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | AddEventListenerOptions): void;
     removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
