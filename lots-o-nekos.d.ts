@@ -169,6 +169,30 @@ declare module "lots-o-nekos" {
      * @since 3.0.0
      */
     maxAlertDuration: number | undefined;
+    static readonly sourceOptions: [
+      "ace",
+      "black",
+      "bunny",
+      "calico",
+      "default",
+      "eevee",
+      "esmeralda",
+      "fox",
+      "ghost",
+      "gray",
+      "jess",
+      "kina",
+      "lucy",
+      "maia",
+      "maria",
+      "mike",
+      "silver",
+      "silversky",
+      "snuupy",
+      "spirit",
+      "tora",
+      "valentine"
+    ];
     /**
      * A keyed list of arrays of points ([number, number]), defined as animations.
      * 
@@ -486,7 +510,7 @@ declare module "lots-o-nekos" {
     removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
   }
 
-  type OnekoDatabaseSource = "ace" | "black" | "bunny" | "calico" | "default" | "eevee" | "esmeralda" | "fox" | "ghost" | "gray" | "jess" | "kina" | "lucy" | "maia" | "maria" | "mike" | "silver" | "silversky" | "snuupy" | "spirit" | "tora" | "valentine";
+  type OnekoDatabaseSource = typeof Oneko.sourceOptions[number];
 
   interface OnekoEventMap {
     /**

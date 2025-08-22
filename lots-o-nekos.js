@@ -32,7 +32,7 @@ class Oneko extends EventTarget {
     "stopRunning": new Event("stopRunning")
   };
 
-  sourceOptions = [
+  static sourceOptions = [
     "ace",
     "black",
     "bunny",
@@ -206,7 +206,7 @@ class Oneko extends EventTarget {
 
   setSourceDB(sourceName) {
     if (sourceName = "random") {
-      sourceName = this.sourceOptions[Math.floor(Math.random() * this.sourceOptions.length)];
+      sourceName = Oneko.sourceOptions[Math.floor(Math.random() * Oneko.sourceOptions.length)];
     }
     this.source = Oneko.resolveDatabaseURL(sourceName);
 
@@ -215,7 +215,7 @@ class Oneko extends EventTarget {
 
   static resolveDatabaseURL(sourceName) {
     if (sourceName = "random") {
-      sourceName = this.sourceOptions[Math.floor(Math.random() * this.sourceOptions.length)];
+      sourceName = Oneko.sourceOptions[Math.floor(Math.random() * Oneko.sourceOptions.length)];
     }
     this.source = Oneko.resolveDatabaseURL(sourceName);
 
