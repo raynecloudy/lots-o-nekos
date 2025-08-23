@@ -507,7 +507,9 @@ declare module "lots-o-nekos" {
     toJSON(): Pick<typeof this, { [K in keyof typeof this]: typeof this[K] extends Function ? never : K }[keyof typeof this]>;
 
     addEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | AddEventListenerOptions): void;
+    addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
     removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
+    removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
   }
 
   type OnekoDatabaseSource = typeof Oneko.sourceOptions[number];
