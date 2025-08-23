@@ -529,9 +529,9 @@ declare module "lots-o-nekos" {
      */
     toJSON(): Pick<InitializedOneko, { [K in keyof InitializedOneko]: InitializedOneko[K] extends Function ? never : K }[keyof InitializedOneko]>;
 
-    addEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | AddEventListenerOptions): void;
+    addEventListener<K extends keyof OnekoEventMap>(type: K, listener: (this: Document, ev: OnekoEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-    removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
+    removeEventListener<K extends keyof OnekoEventMap>(type: K, listener: (this: Document, ev: OnekoEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
     removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
   }
 
