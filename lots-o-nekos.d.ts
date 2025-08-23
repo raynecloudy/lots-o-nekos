@@ -188,7 +188,12 @@ declare module "lots-o-nekos" {
    */
   export const Oneko: {
     prototype: Oneko,
-    new(): Oneko,
+    new(
+      /**
+       * Allows for applying custom values to properties during initialization.
+       */
+      options?: Partial<Pick<InitializedOneko, { [K in keyof InitializedOneko]: InitializedOneko[K] extends Function ? never : K }[keyof InitializedOneko]>> & { skipElementInit?: boolean }
+    ): Oneko,
     readonly sourceOptions: [
       "ace",
       "black",
@@ -364,12 +369,6 @@ declare module "lots-o-nekos" {
        */
       NW: number[][]
     };
-    constructor(
-      /**
-       * Options for the Oneko.
-       */
-      options?: OnekoOptions
-    );
     /**
      * Sets the coordinates for the Oneko to run to.
      * 
@@ -563,29 +562,6 @@ declare module "lots-o-nekos" {
 
   type OnekoIdleAnimation = "sleeping" | "scratchSelf" | "scratchWallW" | "scratchWallN" | "scratchWallE" | "scratchWallS";
 
-  type OnekoOptions = {
-    element?: HTMLDivElement | null,
-    x?: number,
-    y?: number,
-    speed?: number,
-    size?: number,
-    allowedTargetDistance?: number,
-    source?: string,
-    updateSpeed?: number,
-    loopAnimating?: boolean,
-    skipAlertAnimation?: boolean,
-    targetX?: number,
-    targetY?: number,
-    frameCount?: number,
-    idleTime?: number,
-    idleAnimation?: OnekoIdleAnimation | null,
-    idleAnimationFrame?: number,
-    skipElementInit?: boolean,
-    allowedIdleAnimations?: OnekoIdleAnimation[],
-    yawnDuration?: number,
-    sleepDuration?: number,
-    maxAlertDuration?: number
-  };
 
   type OnekoSpriteSetOption = keyof typeof Oneko.prototype.spriteSets;
 
