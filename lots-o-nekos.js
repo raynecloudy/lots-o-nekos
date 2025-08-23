@@ -18,15 +18,15 @@ class Oneko extends EventTarget {
   idleTime;
   idleAnimation;
   idleAnimationFrame;
-  initialized = false;
   lastFrameTimestamp;
   allowedIdleAnimations;
   yawnDuration;
   sleepDuration;
   scratchDuration;
   maxAlertDuration;
-
-  events = {
+  _initialized = false;
+  
+  _events = {
     "draw": new Event("draw"),
     "startRunning": new Event("startRunning"),
     "stopRunning": new Event("stopRunning")
@@ -178,7 +178,7 @@ class Oneko extends EventTarget {
     this.onAnimationFrame = this.onAnimationFrame.bind(this);
     window.requestAnimationFrame(this.onAnimationFrame);
 
-    this.initialized = true;
+    this._initialized = true;
   }
 
   setTarget(x, y) {
@@ -258,7 +258,7 @@ class Oneko extends EventTarget {
 
   idle() {
     if (this.idleTime === 1) {
-      this.dispatchEvent(this.events.stopRunning);
+      this.dispatchEvent(this._events.stopRunning);
     }
 
     this.idleTime += 1;
@@ -346,14 +346,14 @@ class Oneko extends EventTarget {
         this.idleTime = Math.min(this.idleTime, this.maxAlertDuration);
         this.idleTime -= 1;
         if (this.idleTime === 1) {
-          this.dispatchEvent(this.events.startRunning);
+          this.dispatchEvent(this._events.startRunning);
         }
         return this;
       }
     } else {
       if (this.idleTime > 1) {
         this.idleTime = 1;
-        this.dispatchEvent(this.events.startRunning);
+        this.dispatchEvent(this._events.startRunning);
       }
     }
 
@@ -383,13 +383,13 @@ class Oneko extends EventTarget {
     this.element.style.backgroundImage = `url(${this.source})`;
     this.element.style.backgroundSize = `${this.size * 8}px`;
 
-    this.dispatchEvent(this.events.draw);
+    this.dispatchEvent(this._events.draw);
 
     return this;
   }
 
   isInitialized() {
-    return this.initialized;
+    return this._initialized;
   }
 
   static canInitialize() {
