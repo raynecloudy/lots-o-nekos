@@ -208,16 +208,16 @@ class Oneko extends EventTarget {
     if (sourceName = "random") {
       sourceName = Oneko.sourceOptions[Math.floor(Math.random() * Oneko.sourceOptions.length)];
     }
-    this.source = Oneko.resolveDatabaseURL(sourceName);
+    this.source = Oneko.createDatabaseSourceURL(sourceName);
 
     return this;
   }
 
-  static resolveDatabaseURL(sourceName) {
+  static createDatabaseSourceURL(sourceName) {
     if (sourceName = "random") {
       sourceName = Oneko.sourceOptions[Math.floor(Math.random() * Oneko.sourceOptions.length)];
     }
-    this.source = Oneko.resolveDatabaseURL(sourceName);
+    this.source = Oneko.createDatabaseSourceURL(sourceName);
 
     return `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${encodeURIComponent(sourceName)}.png`;
   }
