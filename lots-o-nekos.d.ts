@@ -1,5 +1,240 @@
 declare module "lots-o-nekos" {
-  interface CommonOnekoMethods {
+  /**
+   * An Oneko that the constructor method successfully initialized using the provided parameters.
+   * 
+   * ```ts
+   * let cat = new Oneko();
+   * 
+   * if (cat.isInitialized()) {
+   *   // `cat` is of type InitializedOneko
+   * }
+   * ```
+   * 
+   * @since 3.0.0
+   */
+  interface InitializedOneko extends EventTarget {
+    /**
+     * Controls if onAnimationFrame() loops after each completion of itself.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#loopanimating-boolean)
+     * @since 2.2.0
+     */
+    loopAnimating: boolean;
+    /**
+     * Controls if the alert animation is skipped before running begins.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#skipalertanimation-boolean)
+     * @since 2.2.0
+     */
+    skipAlertAnimation: boolean;
+    /**
+     * The Oneko's `element`'s position on the X axis, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#x-number)
+     * @since 1.0.0
+     */
+    x: number;
+    /**
+     * The Oneko's `element`'s position on the Y axis, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#y-number)
+     * @since 1.0.0
+     */
+    y: number;
+    /**
+     * How far the Oneko runs per update, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#speed-number)
+     * @since 1.0.0
+     */
+    speed: number;
+    /**
+     * How big the Oneko is, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#size-number)
+     * @since 3.0.0
+     */
+    size: number;
+    /**
+     * The maximum distance, in pixels, that the Oneko is allowed to be from the target point before becomes idle.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedtargetdistance-number)
+     * @since 3.0.0
+     */
+    allowedTargetDistance: number;
+    /**
+     * The path to an image file used to represent the Oneko.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#source-string)
+     * @since 1.0.0
+     */
+    source: string;
+    /**
+     * How fast the Oneko updates its animations, in milliseconds.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#updatespeed-number)
+     * @since 1.0.0
+     */
+    updateSpeed: number;
+    /**
+     * An HTMLDivElement used to represent the Oneko in the document.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#element-htmldivelement--null)
+     * @since 1.0.0
+     */
+    element: HTMLDivElement | null;
+    /**
+     * The X position the Oneko is running towards, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targetx-number)
+     * @since 1.0.0
+     */
+    targetX: number;
+    /**
+     * The Y position the Oneko is running towards, in pixels.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targety-number)
+     * @since 1.0.0
+     */
+    targetY: number;
+    /**
+     * How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#framecount-number)
+     * @since 1.0.0
+     */
+    frameCount: number;
+    /**
+     * How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idletime-number)
+     * @since 1.0.0
+     */
+    idleTime: number;
+    /**
+     * The idle animation that's currently playing. `null` means the regular idle animation of being played.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimation-onekoidleanimation)
+     * @since 1.0.0
+     */
+    idleAnimation: OnekoIdleAnimation | null;
+    /**
+     * The current frame of the playing idle animation.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimationframe-number)
+     * @since 1.0.0
+     */
+    idleAnimationFrame: number;
+    /**
+     * The timestamp of the last time the Oneko's `element` was updated.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#lastframetimestamp-number)
+     * @since 1.0.0
+     */
+    readonly lastFrameTimestamp: number | null;
+    /**
+     * A list of animations that the Oneko can use when idle.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedidleanimations-onekoidleanimation)
+     * @since 3.0.0
+     */
+    allowedIdleAnimations: OnekoIdleAnimation[];
+    /**
+     * The number of frames the Oneko will spend in the `tired` state before entering the main sleep animation.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#yawnduration-number)
+     * @since 3.0.0
+     */
+    yawnDuration: number;
+    /**
+     * The number of frames the Oneko will spend in the main sleep animation before the idle animation is reset.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#sleepduration-number)
+     * @since 3.0.0
+     */
+    sleepDuration: number;
+    /**
+     * The number of frames the Oneko will spend in any scratching animation before the idle animation is reset.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#scratchduration-number)
+     * @since 3.0.0
+     */
+    scratchDuration: number;
+    /**
+     * The maximum number of frames the Oneko will spend in the `alert` state before moving towards the target point.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#maxalertduration-number)
+     * @since 3.0.0
+     */
+    maxAlertDuration: number;
+  }
+
+  type Oneko = (InitializedOneko | UninitializedOneko) & OnekoCommons;
+
+  /**
+   * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
+   * 
+   * If the type checker can verify that the Oneko was initialized (this can be done with methods like `force()` or `isInitialized()`), it will become an `InitializedOneko`. However, because it is currently unknown whether the Oneko is initialized or not, all attributes are possibly `undefined`.
+   * 
+   * ```ts
+   * let cat = new Oneko();
+   * 
+   * window.addEventListener("mousemove", (event) => {
+   *   cat.setTarget(event.clientX, event.clientY);
+   * });
+   * ```
+   * 
+   * @since 1.0.0
+   */
+  export const Oneko: {
+    prototype: Oneko,
+    new(): Oneko,
+    readonly sourceOptions: [
+      "ace",
+      "black",
+      "bunny",
+      "calico",
+      "default",
+      "eevee",
+      "esmeralda",
+      "fox",
+      "ghost",
+      "gray",
+      "jess",
+      "kina",
+      "lucy",
+      "maia",
+      "maria",
+      "mike",
+      "silver",
+      "silversky",
+      "snuupy",
+      "spirit",
+      "tora",
+      "valentine"
+    ],
+    /**
+     * Constructs a complete URL path to a file of a given name on the online source database.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#createdatabasesourceurlsourcename-onekodatabasesource-string)
+     * @since 3.0.0
+     */
+    createDatabaseSourceURL(
+      /**
+       * The name of the image to access from the source database.
+       */
+      sourceName: OnekoDatabaseSource | "random" | (string & {})
+    ): `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${typeof sourceName}.png`,
+    /**
+     * Returns `true` if an Oneko can be initialized under current conditions. An example in which this would return `false` is if the `prefers-reduced-motion` media query is set to `reduce`.
+     * 
+     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#caninitialize-boolean)
+     * @since 3.0.0
+     */
+    canInitialize(): boolean,
+  };
+
+  interface OnekoCommons {
     /**
      * A keyed list of arrays of points ([number, number]), defined as animations.
      * 
@@ -299,241 +534,6 @@ declare module "lots-o-nekos" {
     removeEventListener<E extends keyof OnekoEventMap>(type: E, listener: (this: Document, ev: OnekoEventMap[E]) => any, options?: boolean | EventListenerOptions): void;
     removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
   }
-
-  /**
-   * An Oneko that the constructor method successfully initialized using the provided parameters.
-   * 
-   * ```ts
-   * let cat = new Oneko();
-   * 
-   * if (cat.isInitialized()) {
-   *   // `cat` is of type InitializedOneko
-   * }
-   * ```
-   * 
-   * @since 3.0.0
-   */
-  interface InitializedOneko extends EventTarget {
-    /**
-     * Controls if onAnimationFrame() loops after each completion of itself.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#loopanimating-boolean)
-     * @since 2.2.0
-     */
-    loopAnimating: boolean;
-    /**
-     * Controls if the alert animation is skipped before running begins.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#skipalertanimation-boolean)
-     * @since 2.2.0
-     */
-    skipAlertAnimation: boolean;
-    /**
-     * The Oneko's `element`'s position on the X axis, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#x-number)
-     * @since 1.0.0
-     */
-    x: number;
-    /**
-     * The Oneko's `element`'s position on the Y axis, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#y-number)
-     * @since 1.0.0
-     */
-    y: number;
-    /**
-     * How far the Oneko runs per update, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#speed-number)
-     * @since 1.0.0
-     */
-    speed: number;
-    /**
-     * How big the Oneko is, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#size-number)
-     * @since 3.0.0
-     */
-    size: number;
-    /**
-     * The maximum distance, in pixels, that the Oneko is allowed to be from the target point before becomes idle.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedtargetdistance-number)
-     * @since 3.0.0
-     */
-    allowedTargetDistance: number;
-    /**
-     * The path to an image file used to represent the Oneko.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#source-string)
-     * @since 1.0.0
-     */
-    source: string;
-    /**
-     * How fast the Oneko updates its animations, in milliseconds.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#updatespeed-number)
-     * @since 1.0.0
-     */
-    updateSpeed: number;
-    /**
-     * An HTMLDivElement used to represent the Oneko in the document.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#element-htmldivelement--null)
-     * @since 1.0.0
-     */
-    element: HTMLDivElement | null;
-    /**
-     * The X position the Oneko is running towards, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targetx-number)
-     * @since 1.0.0
-     */
-    targetX: number;
-    /**
-     * The Y position the Oneko is running towards, in pixels.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#targety-number)
-     * @since 1.0.0
-     */
-    targetY: number;
-    /**
-     * How long the Oneko has been alive for. Measured by how many times the Oneko's `element` has been updated.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#framecount-number)
-     * @since 1.0.0
-     */
-    frameCount: number;
-    /**
-     * How long the Oneko has been idle for. Measured by how many times the Oneko's `element` has been updated.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idletime-number)
-     * @since 1.0.0
-     */
-    idleTime: number;
-    /**
-     * The idle animation that's currently playing. `null` means the regular idle animation of being played.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimation-onekoidleanimation)
-     * @since 1.0.0
-     */
-    idleAnimation: OnekoIdleAnimation | null;
-    /**
-     * The current frame of the playing idle animation.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#idleanimationframe-number)
-     * @since 1.0.0
-     */
-    idleAnimationFrame: number;
-    /**
-     * The timestamp of the last time the Oneko's `element` was updated.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#lastframetimestamp-number)
-     * @since 1.0.0
-     */
-    readonly lastFrameTimestamp: number | null;
-    /**
-     * A list of animations that the Oneko can use when idle.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#allowedidleanimations-onekoidleanimation)
-     * @since 3.0.0
-     */
-    allowedIdleAnimations: OnekoIdleAnimation[];
-    /**
-     * The number of frames the Oneko will spend in the `tired` state before entering the main sleep animation.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#yawnduration-number)
-     * @since 3.0.0
-     */
-    yawnDuration: number;
-    /**
-     * The number of frames the Oneko will spend in the main sleep animation before the idle animation is reset.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#sleepduration-number)
-     * @since 3.0.0
-     */
-    sleepDuration: number;
-    /**
-     * The number of frames the Oneko will spend in any scratching animation before the idle animation is reset.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#scratchduration-number)
-     * @since 3.0.0
-     */
-    scratchDuration: number;
-    /**
-     * The maximum number of frames the Oneko will spend in the `alert` state before moving towards the target point.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#maxalertduration-number)
-     * @since 3.0.0
-     */
-    maxAlertDuration: number;
-  }
-
-  type Oneko = (InitializedOneko | UninitializedOneko) & CommonOnekoMethods;
-
-  /**
-   * An Oneko that the constructor method attempted to initialize using the provided parameters. It may or may not be initialized.
-   * 
-   * If the type checker can verify that the Oneko was initialized (this can be done with methods like `force()` or `isInitialized()`), it will become an `InitializedOneko`. However, because it is currently unknown whether the Oneko is initialized or not, all attributes are possibly `undefined`.
-   * 
-   * ```ts
-   * let cat = new Oneko();
-   * 
-   * window.addEventListener("mousemove", (event) => {
-   *   cat.setTarget(event.clientX, event.clientY);
-   * });
-   * ```
-   * 
-   * @since 1.0.0
-   */
-  export const Oneko: {
-    prototype: Oneko,
-    new(): Oneko,
-    readonly sourceOptions: [
-      "ace",
-      "black",
-      "bunny",
-      "calico",
-      "default",
-      "eevee",
-      "esmeralda",
-      "fox",
-      "ghost",
-      "gray",
-      "jess",
-      "kina",
-      "lucy",
-      "maia",
-      "maria",
-      "mike",
-      "silver",
-      "silversky",
-      "snuupy",
-      "spirit",
-      "tora",
-      "valentine"
-    ],
-    /**
-     * Constructs a complete URL path to a file of a given name on the online source database.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#createdatabasesourceurlsourcename-onekodatabasesource-string)
-     * @since 3.0.0
-     */
-    createDatabaseSourceURL(
-      /**
-       * The name of the image to access from the source database.
-       */
-      sourceName: OnekoDatabaseSource | "random" | (string & {})
-    ): `https://raw.githubusercontent.com/raynecloudy/oneko_db/refs/heads/master/${typeof sourceName}.png`,
-    /**
-     * Returns `true` if an Oneko can be initialized under current conditions. An example in which this would return `false` is if the `prefers-reduced-motion` media query is set to `reduce`.
-     * 
-     * [Documentation Reference](https://github.com/raynecloudy/lots-o-nekos/blob/master/DOCUMENTATION.md#caninitialize-boolean)
-     * @since 3.0.0
-     */
-    canInitialize(): boolean,
-  };
 
   type OnekoDatabaseSource = typeof Oneko.sourceOptions[number];
 
