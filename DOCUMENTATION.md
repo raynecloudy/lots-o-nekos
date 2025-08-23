@@ -277,7 +277,7 @@ Controls idle animation logic (scratching, sleeping, etc.)
 #### `isInitialized(): boolean`
 > since: 3.0.0
 
-Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
+Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize.
 
 #### `moveTo(x: number, y: number): Oneko`
 > since: 2.3.0

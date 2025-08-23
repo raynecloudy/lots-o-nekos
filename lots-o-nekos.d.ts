@@ -491,7 +491,7 @@ declare module "lots-o-nekos" {
      */
     draw(): Oneko;
     /**
-     * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize and `initialized` will be `false`.
+     * Only `true` if the Oneko has been properly initialized. For example, if the `prefers-reduced-motion` media query is set to `reduce`, the Oneko will not initialize.
      * 
      * ```ts
      * let cat = new Oneko();
